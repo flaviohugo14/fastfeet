@@ -1,0 +1,9 @@
+{
+  "name": "fastfeet",
+  "version": "1.0.0",
+  "description": "REST API for shipping company",
+  "main": "index.js",
+  "repository": "https://github.com/flaviohugo14/fastfeet/server",
+  "author": "Flavio <flaviohugo.14@gmail.com>",
+  "license": "MIT"
+}
