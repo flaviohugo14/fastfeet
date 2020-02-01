@@ -155,7 +155,7 @@ Esse desafio **não precisa ser entregue** e não receberá correção. Além di
 
 ## :memo: Licença
 
-Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](../LICENSE.md) para mais detalhes.
+Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](https://github.com/flaviohugo14/fastfeet/LICENSE.md) para mais detalhes.
 
 ---
 
