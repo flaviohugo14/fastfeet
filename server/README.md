@@ -43,7 +43,7 @@ By [Flávio Pangrácio](https://www.linkedin.com/in/flaviopangracio/)
 # Informações do desafio
 
 <h1 align="center">
-  <img alt="Fastfeet" title="Fastfeet" src=".github/logo.png" width="300px" />
+  <img alt="Fastfeet" title="Fastfeet" src="../.github/logo.png" width="300px" />
 </h1>
 
 <h3 align="center">
@@ -155,7 +155,7 @@ Esse desafio **não precisa ser entregue** e não receberá correção. Além di
 
 ## :memo: Licença
 
-Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
+Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](https://github.com/flaviohugo14/fastfeet/blob/master/LICENSE) para mais detalhes.
 
 ---
 
