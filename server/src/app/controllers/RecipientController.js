@@ -31,13 +31,13 @@ class RecipientController {
 
   async update(req, res) {
     const schema = Yup.object(req.body).shape({
-      name: Yup.string().required(),
-      street: Yup.string().required(),
-      number: Yup.number().required(),
+      name: Yup.string(),
+      street: Yup.string(),
+      number: Yup.number(),
       complement: Yup.string(),
-      state: Yup.string().required(),
-      city: Yup.string().required(),
-      zipcode: Yup.string().required(),
+      state: Yup.string(),
+      city: Yup.string(),
+      zipcode: Yup.string(),
     });
 
     if (!(await schema.isValid(req.body))) {
