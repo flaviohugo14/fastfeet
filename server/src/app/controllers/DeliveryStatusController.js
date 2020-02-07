@@ -7,6 +7,8 @@ import {
   setSeconds,
   setMinutes,
   setHours,
+  startOfDay,
+  endOfDay,
 } from 'date-fns';
 import Delivery from '../models/Delivery';
 import Deliveryman from '../models/Deliveryman';
@@ -124,25 +126,38 @@ class DeliveryStatusController {
       });
     }
 
-    const {
-      id,
-      product,
-      recipient_id,
-      start_date,
-      end_date,
-    } = await deliveryBelongsToDeliveryman.update({
-      start_date: req.body.start_date,
-      end_date: req.body.end_date,
+    const ordersPickupInDay = await Delivery.findAll({
+      where: {
+        start_date: {
+          [Op.between]: [startOfDay(startDate), endOfDay(startDate)],
+        },
+      },
     });
 
-    return res.json({
-      id,
-      product,
-      deliveryman_id,
-      recipient_id,
-      start_date,
-      end_date,
-    });
+    if (ordersPickupInDay.length < 5) {
+      const {
+        id,
+        product,
+        recipient_id,
+        canceled_at,
+        start_date,
+        end_date,
+      } = await deliveryBelongsToDeliveryman.update(req.body);
+
+      return res.json({
+        id,
+        product,
+        deliveryman_id,
+        recipient_id,
+        canceled_at,
+        start_date,
+        end_date,
+      });
+    }
+
+    return res
+      .status(401)
+      .json({ error: 'You cannot make more withdrawals on this day' });
   }
 }
 
