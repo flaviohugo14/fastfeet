@@ -12,6 +12,7 @@ import {
 } from 'date-fns';
 import Delivery from '../models/Delivery';
 import Deliveryman from '../models/Deliveryman';
+import File from '../models/File';
 
 class DeliveryStatusController {
   async index(req, res) {
@@ -50,6 +51,13 @@ class DeliveryStatusController {
           [Op.ne]: null,
         },
       },
+      include: [
+        {
+          model: File,
+          as: 'signature',
+          attributes: ['url', 'path', 'name'],
+        },
+      ],
     });
 
     return res.json(deliveries);
@@ -59,6 +67,7 @@ class DeliveryStatusController {
     const schema = Yup.object(req.body).shape({
       start_date: Yup.date(),
       end_date: Yup.date(),
+      signature_id: Yup.number(),
     });
 
     if (!(await schema.isValid(req.body))) {
@@ -70,9 +79,16 @@ class DeliveryStatusController {
      */
 
     const startDate = parseISO(req.body.start_date);
+    const endDate = parseISO(req.body.end_date);
 
     if (isBefore(startDate, new Date())) {
       return res.status(400).json({ error: 'Past dates are not permitted' });
+    }
+
+    if (isBefore(endDate, startDate)) {
+      return res
+        .status(400)
+        .json({ error: 'Delivery date must be after the withdrawal date' });
     }
 
     /**
@@ -134,25 +150,25 @@ class DeliveryStatusController {
       },
     });
 
-    if (ordersPickupInDay.length < 5) {
-      const {
-        id,
-        product,
-        recipient_id,
-        canceled_at,
-        start_date,
-        end_date,
-      } = await deliveryBelongsToDeliveryman.update(req.body);
+    const arrayOfIds = ordersPickupInDay.map(order => order.id);
 
-      return res.json({
-        id,
-        product,
-        deliveryman_id,
-        recipient_id,
-        canceled_at,
-        start_date,
-        end_date,
+    if (
+      ordersPickupInDay.length < 5 ||
+      arrayOfIds.includes(Number(delivery_id))
+    ) {
+      const data = await deliveryBelongsToDeliveryman.update(req.body, {
+        attributes: [
+          'id',
+          'product',
+          'recipient_id',
+          'canceled_at',
+          'start_date',
+          'end_date',
+          'signature_id',
+        ],
       });
+
+      return res.json(data);
     }
 
     return res

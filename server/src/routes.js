@@ -22,6 +22,8 @@ routes.put(
   '/deliveryman/:deliveryman_id/deliveries/:delivery_id',
   DeliveryStatusController.update
 );
+routes.post('/files/signature', upload.single('file'), FileController.store);
+routes.post('/deliveries/:id/problems', () => {});
 
 routes.use(authMiddleware);
 
@@ -39,5 +41,7 @@ routes.post('/deliveries', DeliveryController.store);
 routes.get('/deliveries', DeliveryController.index);
 routes.put('/deliveries/:id', DeliveryController.update);
 routes.delete('/deliveries/:id', DeliveryController.delete);
+
+routes.get('/deliveries/:id/problems', () => {});
 
 export default routes;
