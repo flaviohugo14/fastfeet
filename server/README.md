@@ -1,4 +1,9 @@
-# FastFeet
+<h1 align="center">
+  <img alt="Fastfeet" title="Fastfeet" src="../.github/logo.png" width="300px" />
+</h1>
+
+---
+
 Backend do app FastFeet, desenvolvido com Node.js, nos padrões REST API.
 
 ---
