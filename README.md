@@ -13,7 +13,7 @@ Esse app está em fase de desenvolvimento e faz parte de uma série de desafios 
 
 ## Acompanhe as fases do desenvolvimento:
 - [Parte 1](server/) (Finalizado)
-- [Parte 2](server/) (Em desenvolvimento)
+- [Parte 2](server/) (Finalizado)
 - [Parte 3]() (Não iniciado)
 - [Parte 4]() (Não iniciado)
 ---
