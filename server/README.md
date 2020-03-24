@@ -10,7 +10,7 @@ Backend do app FastFeet, desenvolvido com Node.js, nos padrões REST API.
 
 - [Node.js](https://github.com/nodejs)
 - [Express](https://github.com/expressjs/express)
-- [Sequelize](https://github.com/sequelize/sequelize) - ORM para conversação com o banco de dados 
+- [Sequelize](https://github.com/sequelize/sequelize) - ORM para conversação com o banco de dados
 - [Yup](https://github.com/jquense/yup) - Schema validator(Validação de dadsos de entrada)
 - [JWT](https://www.npmjs.com/package/jsonwebtoken) - JSON WEB TOKEN - Lib para autenticação via token.
 - [Bcryptjs](https://www.npmjs.com/package/bcrypt) - Usado na criptografia de senhas.
