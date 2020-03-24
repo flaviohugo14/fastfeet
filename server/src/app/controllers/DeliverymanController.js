@@ -8,8 +8,8 @@ class DeliverymanController {
     const deliverymen = await Deliveryman.findAll({
       where: {
         name: {
-          [Op.iLike]: `%${req.query.q || ''}%`
-        }
+          [Op.iLike]: `%${req.query.q || ''}%`,
+        },
       },
       attributes: ['id', 'name', 'email', 'avatar_id'],
       include: [

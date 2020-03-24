@@ -13,8 +13,8 @@ class DeliveryController {
     const deliveries = await Delivery.findAll({
       where: {
         product: {
-          [Op.iLike]: `%${req.query.q || ''}%`
-        }
+          [Op.iLike]: `%${req.query.q || ''}%`,
+        },
       },
       include: [
         {
