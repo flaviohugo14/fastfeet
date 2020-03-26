@@ -18,16 +18,17 @@ export const Content = styled.div`
   border-radius: 4px;
   height: 425px;
   box-shadow: 0px 0px 10px #00000033;
-  padding: 60px 30px;
+  padding: 30px 30px;
 
   img {
     width: 251px;
+    margin-top: 10px;
   }
 
   form {
     display: flex;
     flex-direction: column;
-    margin-top: 30px;
+    margin-top: 20px;
 
     label {
       display: flex;
@@ -35,6 +36,13 @@ export const Content = styled.div`
       align-items: flex-start;
       margin-top: 10px;
       margin-bottom: 15px;
+
+      span {
+        color: #fb6f91;
+        align-self: flex-start;
+        margin-top: 5px;
+        font-weight: bold;
+      }
 
       strong {
         font-size: 14px;
@@ -56,6 +64,7 @@ export const Content = styled.div`
     }
 
     button {
+      margin-top: 10px;
       border: 0;
       border-radius: 4px;
       background: #7d40e7;
