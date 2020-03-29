@@ -21,7 +21,9 @@ export const Content = styled.div`
   padding: 30px 30px;
 
   img {
-    width: 251px;
+    width: 100%;
+    max-width: 251px;
+    height: auto;
     margin-top: 10px;
   }
 
