@@ -1,9 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { MdAdd, MdMoreHoriz } from 'react-icons/md';
+
+import api from '~/services/api';
+
 import { Container, Title, Content, Table, Thead, Item, Tag } from './styles';
 
 export default function Deliveries() {
+  const [deliveries, setDeliveries] = useState([]);
+
+  useEffect(() => {
+    async function loadDeliveries() {
+      const response = await api.get('deliveries');
+      setDeliveries(response.data);
+    }
+
+    loadDeliveries();
+  }, []);
+
   return (
     <Container>
       <Content>
@@ -25,33 +39,35 @@ export default function Deliveries() {
           <span>Status</span>
           <span className="action">Ações</span>
         </Thead>
-        <Item>
-          <div className="id">
-            <span>#01</span>
-          </div>
-          <div>
-            <span>Ludwig van Beethoven</span>
-          </div>
-          <div>
-            <span>John Doe</span>
-          </div>
-          <div>
-            <span>Rio do Sul</span>
-          </div>
-          <div>
-            <span>Santa Catarina</span>
-          </div>
-
-          <Tag>
-            <div>
-              <span />
-              ENTREGUE
+        {deliveries.map(delivery => (
+          <Item key={delivery.id}>
+            <div className="id">
+              <span>#{delivery.id}</span>
             </div>
-          </Tag>
-          <div className="action">
-            <MdMoreHoriz color="#c6c6c6" />
-          </div>
-        </Item>
+            <div>
+              <span>{delivery.recipient.name}</span>
+            </div>
+            <div>
+              <span>{delivery.deliveryman.name}</span>
+            </div>
+            <div>
+              <span>{delivery.recipient.city}</span>
+            </div>
+            <div>
+              <span>{delivery.recipient.state}</span>
+            </div>
+
+            <Tag>
+              <div>
+                <span />
+                ENTREGUE
+              </div>
+            </Tag>
+            <div className="action">
+              <MdMoreHoriz color="#c6c6c6" />
+            </div>
+          </Item>
+        ))}
       </Table>
     </Container>
   );
