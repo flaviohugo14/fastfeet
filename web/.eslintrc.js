@@ -10,12 +10,13 @@ module.exports = {
     SharedArrayBuffer: "readonly",
     __DEV__: true
   },
+  parser: "babel-eslint",
   parserOptions: {
     ecmaFeatures: {
-      jsx: true
+      jsx: true,
     },
     ecmaVersion: 2018,
-    sourceType: "module"
+    sourceType: "module",
   },
   plugins: ["react", "jsx-a11y", "import","react-hooks", "prettier"],
   rules: {
@@ -39,6 +40,6 @@ module.exports = {
       "babel-plugin-root-import": {
         rootPathSuffix: "src"
       }
-    }
-  }
+    },
+  },
 };

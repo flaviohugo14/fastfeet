@@ -25,7 +25,8 @@ export default function Deliveries() {
         <div>
           <input type="text" placeholder="Buscar por encomendas" />
           <button type="button">
-            <MdAdd size={20} color="#fff" /> CADASTRAR
+            <MdAdd size={20} color="#fff" />
+            <span>CADASTRAR</span>
           </button>
         </div>
       </Content>
@@ -48,6 +49,13 @@ export default function Deliveries() {
               <span>{delivery.recipient.name}</span>
             </div>
             <div>
+              <img
+                src={
+                  delivery.deliveryman.avatar?.url ||
+                  'https://api.adorable.io/avatars/50/abott@adorable.png'
+                }
+                alt="Avatar"
+              />
               <span>{delivery.deliveryman.name}</span>
             </div>
             <div>
@@ -60,7 +68,7 @@ export default function Deliveries() {
             <Tag>
               <div>
                 <span />
-                ENTREGUE
+                <strong>ENTREGUE</strong>
               </div>
             </Tag>
             <div className="action">

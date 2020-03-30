@@ -11,7 +11,6 @@ export const Container = styled.div`
 export const Content = styled.div`
   div {
     display: flex;
-    flex: 1;
     justify-content: space-between;
     align-items: center;
     margin-top: 34px;
@@ -26,6 +25,12 @@ export const Content = styled.div`
     }
 
     button {
+      span {
+        @media only screen and (max-width: 475px) {
+          display: none;
+        }
+      }
+
       display: flex;
       align-items: center;
       justify-content: space-around;
@@ -80,6 +85,14 @@ export const Item = styled.div`
     width: calc(100% / 7);
     display: flex;
     align-items: center;
+
+    img {
+      height: 35px;
+      width: 35px;
+      border-radius: 50%;
+      align-self: center;
+      margin-right: 5px;
+    }
 
     span {
       color: #666;
@@ -139,5 +152,11 @@ export const Tag = styled.div`
     justify-content: center;
     background: #dff0df;
     border-radius: 12px;
+  }
+
+  strong {
+    @media only screen and (max-width: 475px) {
+      display: none;
+    }
   }
 `;
