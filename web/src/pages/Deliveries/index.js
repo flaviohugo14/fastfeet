@@ -12,7 +12,27 @@ export default function Deliveries() {
   useEffect(() => {
     async function loadDeliveries() {
       const response = await api.get('deliveries');
-      setDeliveries(response.data);
+
+      const data = response.data.map(delivery => {
+        let status = '';
+
+        if (delivery.canceled_at) {
+          status = 'CANCELADA';
+        } else if (!delivery.start_date) {
+          status = 'PENDENTE';
+        } else if (delivery.start_date && !delivery.end_date) {
+          status = 'RETIRADA';
+        } else {
+          status = 'ENTREGUE';
+        }
+
+        return {
+          ...delivery,
+          status,
+        };
+      });
+
+      setDeliveries(data);
     }
 
     loadDeliveries();
@@ -36,7 +56,7 @@ export default function Deliveries() {
           <span>Destinatário</span>
           <span>Entregador</span>
           <span>Cidade</span>
-          <span>Estado</span>
+          <span className="state">Estado</span>
           <span>Status</span>
           <span className="action">Ações</span>
         </Thead>
@@ -61,14 +81,14 @@ export default function Deliveries() {
             <div>
               <span>{delivery.recipient.city}</span>
             </div>
-            <div>
+            <div className="state">
               <span>{delivery.recipient.state}</span>
             </div>
 
-            <Tag>
+            <Tag status={delivery.status}>
               <div>
                 <span />
-                <strong>ENTREGUE</strong>
+                <strong>{delivery.status}</strong>
               </div>
             </Tag>
             <div className="action">

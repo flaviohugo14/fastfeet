@@ -36,6 +36,7 @@ export const Content = styled.div`
       justify-content: space-around;
       color: #fff;
       background: #7d40e7;
+      border: 0;
       font-weight: bold;
       font-size: 14px;
       border-radius: 4px;
@@ -67,6 +68,9 @@ export const Table = styled.div`
   }
   .action {
     max-width: 50px;
+  }
+  .state {
+    max-width: 80px;
   }
 `;
 
@@ -136,26 +140,71 @@ export const Tag = styled.div`
     display: inline-block;
     height: 10px;
     width: 10px;
-    background: #2ca42b;
+    background: ${props => {
+      if (props.status === 'ENTREGUE') {
+        return '#2ca42b';
+      }
+      if (props.status === 'RETIRADA') {
+        return '#4D85EE';
+      }
+      if (props.status === 'CANCELADA') {
+        return '#DE3B3B';
+      }
+      return '#C1BC35';
+    }};
     border-radius: 50%;
     margin-right: 6px;
+
+    @media only screen and (max-width: 810px) {
+      margin: 0;
+    }
   }
 
   div {
     font-weight: bold;
-    color: #2ca42b;
+    color: ${props => {
+      if (props.status === 'ENTREGUE') {
+        return '#2ca42b';
+      }
+      if (props.status === 'RETIRADA') {
+        return '#4D85EE';
+      }
+      if (props.status === 'CANCELADA') {
+        return '#DE3B3B';
+      }
+      return '#C1BC35';
+    }};
     font-size: 14px;
-    width: 110px;
+    width: 125px;
     height: 25px;
     display: flex;
+    padding: 0 10px;
     align-items: center;
     justify-content: center;
-    background: #dff0df;
+    background: ${props => {
+      if (props.status === 'ENTREGUE') {
+        return '#DFF0DF';
+      }
+      if (props.status === 'RETIRADA') {
+        return '#BAD2FF';
+      }
+      if (props.status === 'CANCELADA') {
+        return '#FAB0B0';
+      }
+      return '#F0F0DF';
+    }};
     border-radius: 12px;
+
+    @media only screen and (max-width: 810px) {
+      border-radius: 50%;
+      padding: 0;
+      width: 26px;
+      height: 26px;
+    }
   }
 
   strong {
-    @media only screen and (max-width: 475px) {
+    @media only screen and (max-width: 810px) {
       display: none;
     }
   }
