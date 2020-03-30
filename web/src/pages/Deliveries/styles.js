@@ -56,6 +56,13 @@ export const Table = styled.div`
   margin-top: 22px;
   display: flex;
   flex-direction: column;
+
+  .id {
+    max-width: 50px;
+  }
+  .action {
+    max-width: 50px;
+  }
 `;
 
 export const Item = styled.div`
@@ -69,17 +76,19 @@ export const Item = styled.div`
   background: #fff;
   border-radius: 4px;
 
-  span {
-    width: calc(100% / 7);
-    color: #666;
-    font-size: 16px;
-    overflow: hidden;
-  }
-
   div {
     width: calc(100% / 7);
     display: flex;
     align-items: center;
+
+    span {
+      color: #666;
+      font-size: 16px;
+      overflow: hidden;
+      max-width: 180px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
 
     svg {
       margin-left: 15px;
@@ -99,6 +108,8 @@ export const Thead = styled.div`
     width: calc(100% / 7);
     color: #444;
     overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 `;
 

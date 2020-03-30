@@ -17,20 +17,30 @@ export default function Deliveries() {
       </Content>
       <Table>
         <Thead>
-          <span>ID</span>
+          <span className="id">ID</span>
           <span>Destinatário</span>
           <span>Entregador</span>
           <span>Cidade</span>
           <span>Estado</span>
           <span>Status</span>
-          <span>Ações</span>
+          <span className="action">Ações</span>
         </Thead>
         <Item>
-          <span>#01</span>
-          <span>Ludwig van Beethoven</span>
-          <span>John Doe</span>
-          <span>Rio do Sul</span>
-          <span>Santa Catarina</span>
+          <div className="id">
+            <span>#01</span>
+          </div>
+          <div>
+            <span>Ludwig van Beethoven</span>
+          </div>
+          <div>
+            <span>John Doe</span>
+          </div>
+          <div>
+            <span>Rio do Sul</span>
+          </div>
+          <div>
+            <span>Santa Catarina</span>
+          </div>
 
           <Tag>
             <div>
@@ -38,8 +48,7 @@ export default function Deliveries() {
               ENTREGUE
             </div>
           </Tag>
-
-          <div>
+          <div className="action">
             <MdMoreHoriz color="#c6c6c6" />
           </div>
         </Item>
