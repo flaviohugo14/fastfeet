@@ -1,21 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
-import { MdAdd, MdRemoveRedEye, MdEdit, MdDeleteForever } from 'react-icons/md';
-
-import ActionButton from '~/components/ActionButton';
+import { MdAdd } from 'react-icons/md';
 
 import api from '~/services/api';
 
-import {
-  Container,
-  Title,
-  Content,
-  Table,
-  Thead,
-  Item,
-  Tag,
-  ActionContainer,
-} from './styles';
+import DeliveryItem from './DeliveryItem';
+
+import { Container, Title, Content, Table, Thead } from './styles';
 
 export default function Deliveries() {
   const [deliveries, setDeliveries] = useState([]);
@@ -72,55 +63,7 @@ export default function Deliveries() {
           <span className="action">Ações</span>
         </Thead>
         {deliveries.map(delivery => (
-          <Item key={delivery.id}>
-            <div className="id">
-              <span>#{delivery.id}</span>
-            </div>
-            <div>
-              <span>{delivery.recipient.name}</span>
-            </div>
-            <div>
-              <img
-                src={
-                  delivery.deliveryman.avatar?.url ||
-                  'https://api.adorable.io/avatars/50/abott@adorable.png'
-                }
-                alt="Avatar"
-              />
-              <span>{delivery.deliveryman.name}</span>
-            </div>
-            <div>
-              <span>{delivery.recipient.city}</span>
-            </div>
-            <div className="state">
-              <span>{delivery.recipient.state}</span>
-            </div>
-
-            <Tag status={delivery.status}>
-              <div>
-                <span />
-                <strong>{delivery.status}</strong>
-              </div>
-            </Tag>
-            <div className="action">
-              <ActionButton>
-                <ActionContainer>
-                  <div>
-                    <MdRemoveRedEye size={16} color="#7d40e7" />
-                    <span>Visualizar</span>
-                  </div>
-                  <div>
-                    <MdEdit size={16} color="#4D85EE" />
-                    <span>Editar</span>
-                  </div>
-                  <div>
-                    <MdDeleteForever size={16} color="#DE3B3B" />
-                    <span>Excluir</span>
-                  </div>
-                </ActionContainer>
-              </ActionButton>
-            </div>
-          </Item>
+          <DeliveryItem key={delivery.id} delivery={delivery} />
         ))}
       </Table>
     </Container>
