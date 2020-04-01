@@ -1,10 +1,21 @@
 import React, { useState, useEffect } from 'react';
 
-import { MdAdd, MdMoreHoriz } from 'react-icons/md';
+import { MdAdd, MdRemoveRedEye, MdEdit, MdDeleteForever } from 'react-icons/md';
+
+import ActionButton from '~/components/ActionButton';
 
 import api from '~/services/api';
 
-import { Container, Title, Content, Table, Thead, Item, Tag } from './styles';
+import {
+  Container,
+  Title,
+  Content,
+  Table,
+  Thead,
+  Item,
+  Tag,
+  ActionContainer,
+} from './styles';
 
 export default function Deliveries() {
   const [deliveries, setDeliveries] = useState([]);
@@ -92,7 +103,22 @@ export default function Deliveries() {
               </div>
             </Tag>
             <div className="action">
-              <MdMoreHoriz color="#c6c6c6" />
+              <ActionButton>
+                <ActionContainer>
+                  <div>
+                    <MdRemoveRedEye size={16} color="#7d40e7" />
+                    <span>Visualizar</span>
+                  </div>
+                  <div>
+                    <MdEdit size={16} color="#4D85EE" />
+                    <span>Editar</span>
+                  </div>
+                  <div>
+                    <MdDeleteForever size={16} color="#DE3B3B" />
+                    <span>Excluir</span>
+                  </div>
+                </ActionContainer>
+              </ActionButton>
             </div>
           </Item>
         ))}

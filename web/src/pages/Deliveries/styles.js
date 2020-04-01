@@ -106,10 +106,6 @@ export const Item = styled.div`
       text-overflow: ellipsis;
       white-space: nowrap;
     }
-
-    svg {
-      margin-left: 15px;
-    }
   }
 `;
 
@@ -206,6 +202,33 @@ export const Tag = styled.div`
   strong {
     @media only screen and (max-width: 810px) {
       display: none;
+    }
+  }
+`;
+
+export const ActionContainer = styled.div`
+  width: 100% !important;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+
+  > div {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #eee;
+    :nth-last-child(1) {
+      border: none;
+      margin: 0;
+      padding: 0;
+    }
+    span {
+      margin-left: 8px;
+      font-size: 16px;
+      color: #999999;
     }
   }
 `;
