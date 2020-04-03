@@ -2,7 +2,7 @@
   <img alt="Fastfeet" title="Fastfeet" src=".github/logo.png" width="300px" />
 </h1>
 
-FastFeet é um app para uma transportadora fictícia, o FastFett.
+FastFeet é um app para uma transportadora fictícia, o FastFeet.
 
 Esse app está em fase de desenvolvimento e faz parte de uma série de desafios propostos pela [Rockeseat](https://rocketseat.com.br) em seu bootcamp.
 
