@@ -4,7 +4,7 @@
 
 FastFeet é um app para uma transportadora fictícia, o FastFeet.
 
-Esse app está em fase de desenvolvimento e faz parte de uma série de desafios propostos pela [Rockeseat](https://rocketseat.com.br) em seu bootcamp.
+Esse app está em fase de desenvolvimento e faz parte de uma série de desafios propostos pela [Rocketseat](https://rocketseat.com.br) em seu bootcamp.
 
 ## :rocket: Tecnologias:
 - Servidor: [Node.js](https://github.com/nodejs)
