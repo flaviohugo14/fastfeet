@@ -56,6 +56,7 @@ class DeliveryController {
         'start_date',
         'end_date',
       ],
+      order: [['id', 'asc']],
     });
     return res.json(deliveries);
   }
