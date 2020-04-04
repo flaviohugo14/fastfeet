@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { MdAdd, MdSearch } from 'react-icons/md';
 
 import api from '~/services/api';
+import dataWithStatus from '~/utils/dataWithStatus';
 
 import DeliveryItem from './DeliveryItem';
 
@@ -15,24 +16,7 @@ export default function Deliveries() {
     async function loadDeliveries() {
       const response = await api.get('deliveries');
 
-      const data = response.data.map(delivery => {
-        let status = '';
-
-        if (delivery.canceled_at) {
-          status = 'CANCELADA';
-        } else if (!delivery.start_date) {
-          status = 'PENDENTE';
-        } else if (delivery.start_date && !delivery.end_date) {
-          status = 'RETIRADA';
-        } else {
-          status = 'ENTREGUE';
-        }
-
-        return {
-          ...delivery,
-          status,
-        };
-      });
+      const data = dataWithStatus(response);
 
       setDeliveries(data);
     }
@@ -40,13 +24,28 @@ export default function Deliveries() {
     loadDeliveries();
   }, []);
 
+  async function handleSearchDelivery(e) {
+    const response = await api.get('/deliveries', {
+      params: {
+        q: e.target.value,
+      },
+    });
+
+    const data = dataWithStatus(response);
+    setDeliveries(data);
+  }
+
   return (
     <Container>
       <Content>
         <Title>Gerenciando encomendas</Title>
         <div>
           <div>
-            <input type="text" placeholder="Buscar por encomendas" />
+            <input
+              type="text"
+              onChange={handleSearchDelivery}
+              placeholder="Buscar por encomendas"
+            />
             <MdSearch color="#999" size={16} />
           </div>
           <button type="button">
