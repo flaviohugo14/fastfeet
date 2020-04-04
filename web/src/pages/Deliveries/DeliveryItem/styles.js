@@ -11,12 +11,12 @@ export const Container = styled.div`
   background: #fff;
   border-radius: 4px;
 
-  div {
+  > div {
     width: calc(100% / 7);
     display: flex;
     align-items: center;
 
-    img {
+    > img {
       height: 35px;
       width: 35px;
       border-radius: 50%;
@@ -24,7 +24,7 @@ export const Container = styled.div`
       margin-right: 5px;
     }
 
-    span {
+    > span {
       color: #666;
       font-size: 16px;
       overflow: hidden;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { MdAdd } from 'react-icons/md';
+import { MdAdd, MdSearch } from 'react-icons/md';
 
 import api from '~/services/api';
 
@@ -45,7 +45,10 @@ export default function Deliveries() {
       <Content>
         <Title>Gerenciando encomendas</Title>
         <div>
-          <input type="text" placeholder="Buscar por encomendas" />
+          <div>
+            <input type="text" placeholder="Buscar por encomendas" />
+            <MdSearch color="#999" size={16} />
+          </div>
           <button type="button">
             <MdAdd size={20} color="#fff" />
             <span>CADASTRAR</span>

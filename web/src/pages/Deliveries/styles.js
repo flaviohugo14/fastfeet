@@ -9,19 +9,30 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-  div {
+  > div {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 34px;
 
-    input {
-      height: 36px;
-      width: 237px;
-      padding: 9px 40px;
-      background: #fff;
-      border: 1px solid #ddd;
-      border-radius: 4px;
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        position: relative;
+        left: -222px;
+      }
+
+      input {
+        height: 36px;
+        width: 237px;
+        padding: 9px 40px;
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
     }
 
     button {

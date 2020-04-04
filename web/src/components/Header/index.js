@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { MdMenu } from 'react-icons/md';
+import history from '~/services/history';
 
 import { signOut } from '~/store/modules/auth/actions';
 
@@ -16,7 +17,7 @@ import {
 } from './styles';
 
 export default function Header() {
-  const [select, setSelect] = useState('1');
+  const [select, setSelect] = useState('deliveries');
   const [show, setShow] = useState(false);
 
   const dispatch = useDispatch();
@@ -25,22 +26,39 @@ export default function Header() {
     setShow(!show);
   }
 
+  function handlePage(page) {
+    history.push(`/${page}`);
+    setSelect(page);
+  }
+
   return (
     <>
       <Container>
         <Content>
           <nav>
             <img src={logo} alt="FastFeet" />
-            <Tab select={select === '1'} onClick={() => setSelect('1')}>
+            <Tab
+              select={select === 'deliveries'}
+              onClick={() => handlePage('deliveries')}
+            >
               <span>ENCOMENDAS</span>
             </Tab>
-            <Tab select={select === '2'} onClick={() => setSelect('2')}>
+            <Tab
+              select={select === 'deliverymen'}
+              onClick={() => handlePage('deliverymen')}
+            >
               <span>ENTREGADORES</span>
             </Tab>
-            <Tab select={select === '3'} onClick={() => setSelect('3')}>
+            <Tab
+              select={select === 'recipients'}
+              onClick={() => handlePage('recipients')}
+            >
               <span>DESTINATÁRIOS</span>
             </Tab>
-            <Tab select={select === '4'} onClick={() => setSelect('4')}>
+            <Tab
+              select={select === 'problems'}
+              onClick={() => handlePage('problems')}
+            >
               <span>PROBLEMAS</span>
             </Tab>
           </nav>
