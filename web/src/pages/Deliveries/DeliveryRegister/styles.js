@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Form } from '@unform/web';
 import { darken } from 'polished';
 
 export const Container = styled.div`
@@ -68,7 +69,7 @@ export const Title = styled.span`
   display: block;
 `;
 
-export const FormContainer = styled.div`
+export const FormContainer = styled(Form)`
   display: flex;
   width: 100%;
   flex-direction: column;

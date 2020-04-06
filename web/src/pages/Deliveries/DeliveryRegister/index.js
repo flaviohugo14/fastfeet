@@ -1,9 +1,11 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React from 'react';
-
-import AsyncSelect from 'react-select/async';
-
+import React, { useRef } from 'react';
+import * as Yup from 'yup';
+import { toast } from 'react-toastify';
 import { MdCheck, MdKeyboardArrowLeft } from 'react-icons/md';
+
+import AsyncSelectInput from '~/components/AsyncSelectInput';
+import SimpleInput from '~/components/SimpleInput';
 
 import api from '~/services/api';
 import history from '~/services/history';
@@ -11,6 +13,8 @@ import history from '~/services/history';
 import { Container, Content, Title, FormContainer } from './styles';
 
 export default function DeliveryRegister() {
+  const formRef = useRef(null);
+
   async function loadRecipients(inputValue, callback) {
     const response = await api.get('recipients', {
       params: {
@@ -53,14 +57,33 @@ export default function DeliveryRegister() {
       ...styles,
       backgroundColor: 'none',
     }),
-    input: styles => ({ ...styles }),
+    input: styles => ({ ...styles, backgroundColor: 'none' }),
     placeholder: styles => ({
       ...styles,
       color: '#999',
       fontSize: 16,
     }),
-    singleValue: styles => ({ ...styles }),
+    singleValue: styles => ({ ...styles, backgroundColor: 'none' }),
   };
+
+  async function handleSubmit(data) {
+    try {
+      const schema = Yup.object().shape({
+        product: Yup.string().required('O nome do produto é obrigatório'),
+        recipient_id: Yup.string().required('O destinatário é obrigatório'),
+        deliveryman_id: Yup.string().required('O entregador é obrigatório'),
+      });
+
+      await schema.validate(data, {
+        abortEarly: false,
+      });
+
+      await api.post('deliveries', data);
+      toast.success('Encomenda registrada com sucesso!');
+    } catch (err) {
+      toast.error(err);
+    }
+  }
 
   return (
     <Container>
@@ -75,35 +98,39 @@ export default function DeliveryRegister() {
             >
               <MdKeyboardArrowLeft size={20} color="#fff" /> VOLTAR
             </button>
-            <button type="button" id="save">
+            <button
+              type="button"
+              id="save"
+              onClick={() => formRef.current.submitForm()}
+            >
               <MdCheck size={20} color="#fff" /> SALVAR
             </button>
           </div>
         </div>
-        <FormContainer>
+        <FormContainer ref={formRef} onSubmit={handleSubmit}>
           <div>
             <label htmlFor="recipients" id="recipients">
               <strong>Destinatário</strong>
-              <AsyncSelect
+              <AsyncSelectInput
+                name="recipient_id"
                 cacheOptions
                 loadOptions={loadRecipients}
-                defaultOptions
                 styles={colourStyles}
               />
             </label>
             <label htmlFor="deliveryman">
               <strong>Entregador</strong>
-              <AsyncSelect
+              <AsyncSelectInput
+                name="deliveryman_id"
                 cacheOptions
                 loadOptions={loadDeliverymen}
-                defaultOptions
                 styles={colourStyles}
               />
             </label>
           </div>
           <label htmlFor="productName">
             <strong>Nome do produto</strong>
-            <input type="text" id="productName" />
+            <SimpleInput type="text" id="productName" name="product" />
           </label>
         </FormContainer>
       </Content>

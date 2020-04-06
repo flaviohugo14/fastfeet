@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^7.1.2",
     "@types/dotenv": "^8.2.0",
     "@unform/core": "^2.0.0",
+    "@unform/web": "^2.0.0",
     "axios": "^0.19.2",
     "date-fns": "^2.11.1",
     "history": "^4.10.1",
