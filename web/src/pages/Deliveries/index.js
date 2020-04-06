@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { MdAdd, MdSearch } from 'react-icons/md';
 
 import api from '~/services/api';
+import history from '~/services/history';
 import dataWithStatus from '~/utils/dataWithStatus';
 
 import DeliveryItem from './DeliveryItem';
@@ -25,7 +26,7 @@ export default function Deliveries() {
   }, []);
 
   async function handleSearchDelivery(e) {
-    const response = await api.get('/deliveries', {
+    const response = await api.get('deliveries', {
       params: {
         q: e.target.value,
       },
@@ -48,7 +49,10 @@ export default function Deliveries() {
             />
             <MdSearch color="#999" size={16} />
           </div>
-          <button type="button">
+          <button
+            type="button"
+            onClick={() => history.push('/deliveries/register')}
+          >
             <MdAdd size={20} color="#fff" />
             <span>CADASTRAR</span>
           </button>
