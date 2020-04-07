@@ -11,6 +11,7 @@ import Recipients from '~/pages/Recipients';
 import Problems from '~/pages/Problems';
 
 import DeliveryRegister from '~/pages/Deliveries/DeliveryRegister';
+import DeliveryEdit from '~/pages/Deliveries/DeliveryEdit';
 
 export default function Routes() {
   return (
@@ -26,6 +27,12 @@ export default function Routes() {
         exact
         path="/deliveries/register"
         component={DeliveryRegister}
+        isPrivate
+      />
+      <Route
+        exact
+        path="/deliveries/edit/:id"
+        component={DeliveryEdit}
         isPrivate
       />
 

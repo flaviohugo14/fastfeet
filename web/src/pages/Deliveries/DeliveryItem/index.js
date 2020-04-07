@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 
 import { MdEdit, MdDeleteForever } from 'react-icons/md';
 
+import history from '~/services/history';
+
 import ActionButton from '~/components/ActionButton';
 import DeliveryDetails from '../DeliveryDetails';
 
@@ -48,8 +50,13 @@ export default function DeliveryItem({ delivery }) {
               <DeliveryDetails delivery={delivery} />
             </div>
             <div>
-              <MdEdit size={16} color="#4D85EE" />
-              <span>Editar</span>
+              <button
+                type="button"
+                onClick={() => history.push(`/deliveries/edit/${delivery.id}`)}
+              >
+                <MdEdit size={16} color="#4D85EE" />
+                <span>Editar</span>
+              </button>
             </div>
             <div>
               <MdDeleteForever size={16} color="#DE3B3B" />

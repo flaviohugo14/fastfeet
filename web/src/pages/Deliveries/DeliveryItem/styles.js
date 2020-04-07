@@ -139,5 +139,10 @@ export const ActionContainer = styled.div`
       font-size: 16px;
       color: #999999;
     }
+
+    button {
+      background: none;
+      border: none;
+    }
   }
 `;

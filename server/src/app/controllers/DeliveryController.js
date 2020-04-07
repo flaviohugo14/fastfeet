@@ -61,6 +61,55 @@ class DeliveryController {
     return res.json(deliveries);
   }
 
+  async show(req, res) {
+    const { id } = req.params;
+
+    const delivery = await Delivery.findByPk(id, {
+      include: [
+        {
+          model: Deliveryman,
+          as: 'deliveryman',
+          attributes: ['id', 'name', 'email', 'avatar_id'],
+          include: {
+            model: File,
+            as: 'avatar',
+            attributes: ['name', 'path', 'url'],
+          },
+        },
+        {
+          model: Recipient,
+          as: 'recipient',
+          attributes: [
+            'id',
+            'name',
+            'street',
+            'zipcode',
+            'number',
+            'state',
+            'city',
+            'complement',
+          ],
+        },
+        {
+          model: File,
+          as: 'signature',
+          attributes: ['url', 'path', 'name'],
+        },
+      ],
+      attributes: [
+        'id',
+        'product',
+        'deliveryman_id',
+        'recipient_id',
+        'canceled_at',
+        'start_date',
+        'end_date',
+      ],
+    });
+
+    return res.json(delivery);
+  }
+
   async store(req, res) {
     const schema = Yup.object(req.body).shape({
       product: Yup.string().required(),

@@ -4,9 +4,9 @@ import Select from 'react-select/async';
 import { useField } from '@unform/core';
 import PropTypes from 'prop-types';
 
-import { Container, Label, Error } from './styles';
+import { Container, Error } from './styles';
 
-export default function AsyncSelectInput({ name, label, ...rest }) {
+export default function AsyncSelectInput({ name, ...rest }) {
   const selectRef = useRef(null);
   const { fieldName, defaultValue, registerField, error } = useField(name);
 
@@ -38,7 +38,6 @@ export default function AsyncSelectInput({ name, label, ...rest }) {
 
   return (
     <Container>
-      {label && <Label htmlFor={fieldName}>{label}</Label>}
       <Select
         cacheOptions
         defaultValue={defaultValue}
@@ -53,9 +52,4 @@ export default function AsyncSelectInput({ name, label, ...rest }) {
 
 AsyncSelectInput.propTypes = {
   name: PropTypes.string.isRequired,
-  label: PropTypes.string,
-};
-
-AsyncSelectInput.defaultProps = {
-  label: '',
 };
