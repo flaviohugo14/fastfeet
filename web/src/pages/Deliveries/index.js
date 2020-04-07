@@ -13,15 +13,15 @@ import { Container, Title, Content, Table, Thead } from './styles';
 export default function Deliveries() {
   const [deliveries, setDeliveries] = useState([]);
 
+  async function loadDeliveries() {
+    const response = await api.get('deliveries');
+
+    const data = dataWithStatus(response);
+
+    setDeliveries(data);
+  }
+
   useEffect(() => {
-    async function loadDeliveries() {
-      const response = await api.get('deliveries');
-
-      const data = dataWithStatus(response);
-
-      setDeliveries(data);
-    }
-
     loadDeliveries();
   }, []);
 
@@ -69,7 +69,11 @@ export default function Deliveries() {
           <span className="action">Ações</span>
         </Thead>
         {deliveries.map(delivery => (
-          <DeliveryItem key={delivery.id} delivery={delivery} />
+          <DeliveryItem
+            key={delivery.id}
+            delivery={delivery}
+            loadDeliveries={loadDeliveries}
+          />
         ))}
       </Table>
     </Container>

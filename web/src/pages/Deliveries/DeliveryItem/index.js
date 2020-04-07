@@ -1,9 +1,13 @@
+/* eslint-disable no-alert */
 import React from 'react';
 
 import PropTypes from 'prop-types';
 
+import { toast } from 'react-toastify';
+
 import { MdEdit, MdDeleteForever } from 'react-icons/md';
 
+import api from '~/services/api';
 import history from '~/services/history';
 
 import ActionButton from '~/components/ActionButton';
@@ -11,7 +15,24 @@ import DeliveryDetails from '../DeliveryDetails';
 
 import { Container, Tag, ActionContainer } from './styles';
 
-export default function DeliveryItem({ delivery }) {
+export default function DeliveryItem({ delivery, loadDeliveries }) {
+  async function handleDelete() {
+    const confirm = window.confirm('Você tem certeza que deseja deletar isso?');
+
+    if (!confirm) {
+      toast.error('Encomenda não apagada!');
+      return;
+    }
+
+    try {
+      await api.delete(`/deliveries/${delivery.id}`);
+      loadDeliveries();
+      toast.success('Encomenda apagada com sucesso!');
+    } catch (err) {
+      toast.error('Essa encomenda não pode ser deletada!');
+    }
+  }
+
   return (
     <Container>
       <div className="id">
@@ -59,8 +80,10 @@ export default function DeliveryItem({ delivery }) {
               </button>
             </div>
             <div>
-              <MdDeleteForever size={16} color="#DE3B3B" />
-              <span>Excluir</span>
+              <button type="button" onClick={handleDelete}>
+                <MdDeleteForever size={16} color="#DE3B3B" />
+                <span>Excluir</span>
+              </button>
             </div>
           </ActionContainer>
         </ActionButton>
@@ -70,6 +93,7 @@ export default function DeliveryItem({ delivery }) {
 }
 
 DeliveryItem.propTypes = {
+  loadDeliveries: PropTypes.func.isRequired,
   delivery: PropTypes.shape({
     id: PropTypes.number,
     recipient: PropTypes.shape({

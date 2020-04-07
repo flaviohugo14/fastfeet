@@ -141,6 +141,8 @@ export const ActionContainer = styled.div`
     }
 
     button {
+      display: flex;
+      align-items: center;
       background: none;
       border: none;
     }
