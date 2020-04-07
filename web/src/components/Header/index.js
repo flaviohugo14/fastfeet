@@ -79,29 +79,29 @@ export default function Header() {
       {show ? (
         <MenuContainer show={show}>
           <Tab
-            select={select === '1'}
-            onClick={() => setSelect('1')}
+            select={select === 'deliveries'}
+            onClick={() => handlePage('deliveries')}
             show={show}
           >
             <span>ENCOMENDAS</span>
           </Tab>
           <Tab
-            select={select === '2'}
-            onClick={() => setSelect('2')}
+            select={select === 'deliverymen'}
+            onClick={() => handlePage('deliverymen')}
             show={show}
           >
             <span>ENTREGADORES</span>
           </Tab>
           <Tab
-            select={select === '3'}
-            onClick={() => setSelect('3')}
+            select={select === 'recipients'}
+            onClick={() => handlePage('recipients')}
             show={show}
           >
             <span>DESTINATÁRIOS</span>
           </Tab>
           <Tab
-            select={select === '4'}
-            onClick={() => setSelect('4')}
+            select={select === 'problems'}
+            onClick={() => handlePage('problems')}
             show={show}
           >
             <span>PROBLEMAS</span>
