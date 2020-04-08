@@ -34,6 +34,12 @@ class DeliveryProblemController {
     return res.json(deliveryProblems);
   }
 
+  async show(req, res) {
+    const problems = await DeliveryProblem.findAll();
+
+    return res.json(problems);
+  }
+
   async store(req, res) {
     const schema = Yup.object(req.body).shape({
       description: Yup.string().required(),
@@ -119,6 +125,10 @@ class DeliveryProblemController {
       problem: deliveryProblemExists,
       startDate,
       endDate,
+    });
+
+    await DeliveryProblem.destroy({
+      where: { id },
     });
 
     return res.status(200).json();
