@@ -30,7 +30,7 @@ export default function DeliverymenRegister() {
       await api.post('deliverymen', data);
       toast.success('Entregador registrado com sucesso!');
     } catch (err) {
-      toast.error(err);
+      toast.error('Não foi possível registrar o entregador');
     }
   }
 
