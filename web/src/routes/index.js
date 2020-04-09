@@ -13,6 +13,8 @@ import Problems from '~/pages/Problems';
 import DeliveryRegister from '~/pages/Deliveries/DeliveryRegister';
 import DeliveryEdit from '~/pages/Deliveries/DeliveryEdit';
 
+import DeliverymenRegister from '~/pages/Deliverymen/DeliverymenRegister';
+
 export default function Routes() {
   return (
     <Switch>
@@ -33,6 +35,13 @@ export default function Routes() {
         exact
         path="/deliveries/edit/:id"
         component={DeliveryEdit}
+        isPrivate
+      />
+
+      <Route
+        exact
+        path="/deliverymen/register"
+        component={DeliverymenRegister}
         isPrivate
       />
 
