@@ -20,7 +20,7 @@ export const Container = styled.div`
       height: 35px;
       width: 35px;
       border-radius: 50%;
-      align-self: center;
+      object-fit: cover;
       margin-right: 5px;
     }
 

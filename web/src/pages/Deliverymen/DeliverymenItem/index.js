@@ -59,7 +59,7 @@ export default function DeliverymenItem({ deliveryman, loadDeliverymen }) {
               <button
                 type="button"
                 onClick={() =>
-                  history.push(`/deliveryman/edit/${deliveryman.id}`)
+                  history.push(`/deliverymen/edit/${deliveryman.id}`)
                 }
               >
                 <MdEdit size={16} color="#4D85EE" />

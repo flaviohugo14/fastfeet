@@ -1,39 +1,40 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { useField } from '@unform/core';
 import { MdImage } from 'react-icons/md';
 import PropTypes from 'prop-types';
-import api from '~/services/api';
 
 import { Container } from './styles';
 
-export default function AvatarInput({ name }) {
+export default function AvatarInput({ name, ...rest }) {
   const { fieldName, defaultValue, registerField } = useField(name);
-
-  const [file, setFile] = useState(defaultValue && defaultValue.id);
-  const [preview, setPreview] = useState(defaultValue && defaultValue.url);
-
+  const [preview, setPreview] = useState(defaultValue);
   const avatarRef = useRef(null);
+
+  const handlePreview = useCallback(e => {
+    const file = e.target.files?.[0];
+    if (!file) {
+      setPreview(null);
+      return;
+    }
+
+    const previewURL = URL.createObjectURL(file);
+    setPreview(previewURL);
+  }, []);
 
   useEffect(() => {
     registerField({
       name: fieldName,
       ref: avatarRef.current,
-      path: 'dataset.file',
+      path: 'files[0]',
+      clearValue(ref) {
+        ref.value = '';
+        setPreview(null);
+      },
+      setValue(_, value) {
+        setPreview(value);
+      },
     });
   }, [fieldName, registerField]);
-
-  async function handleChange(e) {
-    const data = new FormData();
-
-    data.append('file', e.target.files[0]);
-
-    const response = await api.post('files', data);
-
-    const { id, url } = response.data;
-
-    setFile(id);
-    setPreview(url);
-  }
 
   return (
     <Container>
@@ -50,9 +51,9 @@ export default function AvatarInput({ name }) {
           type="file"
           id="avatar"
           accept="image/*"
-          data-file={file}
-          onChange={handleChange}
+          onChange={handlePreview}
           ref={avatarRef}
+          {...rest}
         />
       </label>
     </Container>

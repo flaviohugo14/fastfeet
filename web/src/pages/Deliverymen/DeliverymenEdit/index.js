@@ -1,8 +1,10 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import * as Yup from 'yup';
 import { toast } from 'react-toastify';
 import { MdKeyboardArrowLeft, MdCheck } from 'react-icons/md';
+
+import PropTypes from 'prop-types';
 
 import api from '~/services/api';
 import history from '~/services/history';
@@ -12,8 +14,19 @@ import AvatarInput from '~/components/AvatarInput';
 
 import { Container, Content, Title, FormContainer } from './styles';
 
-export default function DeliverymenRegister() {
+export default function DeliverymenEdit({ match }) {
+  const { id } = match.params;
   const formRef = useRef(null);
+
+  useEffect(() => {
+    async function loadInitialData(deliverymanId) {
+      const response = await api.get(`/deliverymen/${deliverymanId}`);
+
+      formRef.current.setData(response.data);
+      formRef.current.setFieldValue('avatar', response?.data?.avatar?.url);
+    }
+    loadInitialData(id);
+  }, [id]);
 
   async function handleSubmit(data) {
     try {
@@ -34,15 +47,15 @@ export default function DeliverymenRegister() {
         ? await api.post('files', dataFile)
         : null;
 
-      await api.post('deliverymen', {
+      await api.put(`deliverymen/${id}`, {
         name: data.name,
         email: data.email,
         avatar_id: responseFile?.data?.id,
       });
-
-      toast.success('Entregador registrado com sucesso!');
+      toast.success('Entregador editado com sucesso!');
+      history.push('/deliverymen');
     } catch (err) {
-      toast.error('Não foi possível registrar o entregador');
+      toast.error('Não foi possível editar o entregador');
     }
   }
 
@@ -93,3 +106,11 @@ export default function DeliverymenRegister() {
     </Container>
   );
 }
+
+DeliverymenEdit.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string,
+    }).isRequired,
+  }).isRequired,
+};
