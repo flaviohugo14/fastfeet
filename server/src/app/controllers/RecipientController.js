@@ -24,6 +24,24 @@ class RecipientController {
     return res.json(recipients);
   }
 
+  async show(req, res) {
+    const { id } = req.params;
+    const recipient = await Recipient.findByPk(id, {
+      attributes: [
+        'id',
+        'name',
+        'street',
+        'number',
+        'complement',
+        'state',
+        'city',
+        'zipcode',
+      ],
+    });
+
+    return res.json(recipient);
+  }
+
   async store(req, res) {
     const schema = Yup.object(req.body).shape({
       name: Yup.string().required(),

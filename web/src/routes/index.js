@@ -17,6 +17,7 @@ import DeliverymenRegister from '~/pages/Deliverymen/DeliverymenRegister';
 import DeliverymenEdit from '~/pages/Deliverymen/DeliverymenEdit';
 
 import RecipientRegister from '~/pages/Recipients/RecipientRegister';
+import RecipientEdit from '~/pages/Recipients/RecipientEdit';
 
 export default function Routes() {
   return (
@@ -58,6 +59,12 @@ export default function Routes() {
         exact
         path="/recipients/register"
         component={RecipientRegister}
+        isPrivate
+      />
+      <Route
+        exact
+        path="/recipients/edit/:id"
+        component={RecipientEdit}
         isPrivate
       />
 
