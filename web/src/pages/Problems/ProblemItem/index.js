@@ -43,7 +43,7 @@ export default function ProblemItem({ problem, loadProblems }) {
         <span>{problem.description}</span>
       </div>
       <div className="action">
-        <ActionButton>
+        <ActionButton big>
           <ActionContainer>
             <div>
               <ProblemDetail problem={problem} />

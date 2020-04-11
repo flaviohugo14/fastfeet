@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 import { PopUpButton } from './styles';
 
-export default function ActionButton({ children, ...rest }) {
+export default function ActionButton({ children, big, ...rest }) {
   return (
     <Popup
       trigger={
@@ -15,11 +15,19 @@ export default function ActionButton({ children, ...rest }) {
         </PopUpButton>
       }
       position="bottom center"
-      contentStyle={{
-        width: '150px',
-        borderRadius: '4px',
-        borderColor: '#FFF',
-      }}
+      contentStyle={
+        big
+          ? {
+              width: '210px',
+              borderRadius: '4px',
+              borderColor: '#FFF',
+            }
+          : {
+              width: '150px',
+              borderRadius: '4px',
+              borderColor: '#FFF',
+            }
+      }
       arrowStyle={{
         borderColor: '#FFF',
         boxShadow: '1px 1px 1px #00000010',
@@ -33,4 +41,5 @@ export default function ActionButton({ children, ...rest }) {
 
 ActionButton.propTypes = {
   children: PropTypes.element.isRequired,
+  big: PropTypes.bool.isRequired,
 };

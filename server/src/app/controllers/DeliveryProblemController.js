@@ -92,7 +92,15 @@ class DeliveryProblemController {
       }
     );
 
-    if (delivery.end_date !== null && delivery.signature_id !== null) {
+    if (!delivery) {
+      return res.status(400).json('This delivery does not exists');
+    }
+
+    if (delivery.canceled_at) {
+      return res.status(400).json('This delivery has been canceled');
+    }
+
+    if (delivery.end_date && delivery.signature_id) {
       return res.status(400).json('This delivery already completed');
     }
 
@@ -113,18 +121,11 @@ class DeliveryProblemController {
       { locale: pt }
     );
 
-    const endDate = format(
-      delivery.end_date,
-      "'dia' dd 'de' MMMM', às' H:mm'h'",
-      { locale: pt }
-    );
-
     await Queue.add(CancellationMail.key, {
       delivery,
       deliveryman: delivery.deliveryman,
       problem: deliveryProblemExists,
       startDate,
-      endDate,
     });
 
     await DeliveryProblem.destroy({
