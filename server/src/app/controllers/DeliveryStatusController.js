@@ -12,12 +12,13 @@ import {
 } from 'date-fns';
 import Delivery from '../models/Delivery';
 import Deliveryman from '../models/Deliveryman';
+import Recipient from '../models/Recipient';
 import File from '../models/File';
 
 class DeliveryStatusController {
   async index(req, res) {
     const checkDeliverymanExists = await Deliveryman.findOne({
-      where: { id: req.body.id },
+      where: { id: req.params.id },
     });
 
     if (!checkDeliverymanExists) {
@@ -28,8 +29,14 @@ class DeliveryStatusController {
       where: {
         end_date: null,
         canceled_at: null,
-        deliveryman_id: req.body.id,
+        deliveryman_id: req.params.id,
       },
+      include: [
+        {
+          model: Recipient,
+          as: 'recipient',
+        },
+      ],
     });
     return res.json(deliveries);
   }
@@ -56,6 +63,10 @@ class DeliveryStatusController {
           model: File,
           as: 'signature',
           attributes: ['url', 'path', 'name'],
+        },
+        {
+          model: Recipient,
+          as: 'recipient',
         },
       ],
     });
