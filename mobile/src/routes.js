@@ -19,9 +19,7 @@ export default (signedIn = false) =>
   createAppContainer(
     createSwitchNavigator(
       {
-        Sign: createSwitchNavigator({
-          SignIn,
-        }),
+        SignIn,
         App: createBottomTabNavigator(
           {
             Dashboard: {
@@ -71,7 +69,7 @@ export default (signedIn = false) =>
         ),
       },
       {
-        initialRouteName: signedIn ? 'App' : 'Sign',
+        initialRouteName: signedIn ? 'App' : 'SignIn',
       }
     )
   );
