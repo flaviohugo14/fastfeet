@@ -19,7 +19,7 @@ export default function ProblemItem({ data }) {
 
 ProblemItem.propTypes = {
   data: PropTypes.shape({
-    createdAt: PropTypes.instanceOf(Date),
+    createdAt: PropTypes.string,
     description: PropTypes.string,
   }).isRequired,
 };

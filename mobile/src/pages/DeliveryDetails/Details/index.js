@@ -1,5 +1,5 @@
 import React from 'react';
-import { StatusBar } from 'react-native';
+import { StatusBar, ScrollView } from 'react-native';
 
 import PropTypes from 'prop-types';
 
@@ -33,16 +33,18 @@ export default function Details({ navigation }) {
       <StatusBar barStyle="light-content" backgroundColor="#7d40e7" />
       <Container>
         <HeaderBackground />
-        <DeliveryInfo
-          recipient={delivery.recipient}
-          product={delivery.product}
-        />
-        <DeliverySituation delivery={delivery} status={status} />
-        <DeliveryActions
-          delivery={delivery}
-          status={status}
-          navigation={navigation}
-        />
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <DeliveryInfo
+            recipient={delivery.recipient}
+            product={delivery.product}
+          />
+          <DeliverySituation delivery={delivery} status={status} />
+          <DeliveryActions
+            delivery={delivery}
+            status={status}
+            navigation={navigation}
+          />
+        </ScrollView>
       </Container>
     </>
   );

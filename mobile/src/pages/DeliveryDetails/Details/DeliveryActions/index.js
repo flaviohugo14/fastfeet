@@ -34,7 +34,7 @@ export default function DeliveryActions({ delivery, status, navigation }) {
     } catch (err) {
       Alert.alert(
         'Falha ao confirmar',
-        'Não foi possível confirmar a data de retirada'
+        'Só é possível fazer retiradas das 8:00 às 18:00.'
       );
     }
   }

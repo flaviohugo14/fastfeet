@@ -16,7 +16,7 @@ export const HeaderBackground = styled.View`
 
 export const Header = styled.View`
   elevation: 3;
-  margin: 120px 22px 0;
+  margin: 120px 22px 10px;
   align-items: center;
 `;
 
@@ -28,6 +28,4 @@ export const Title = styled.Text`
 
 export const List = styled.FlatList.attrs({
   showsVerticalScrollIndicator: false,
-})`
-  margin-top: 10px;
-`;
+})``;
