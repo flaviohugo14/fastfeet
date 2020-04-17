@@ -3,7 +3,7 @@ import Filter from '~/components/Filter';
 
 export const Container = styled.SafeAreaView`
   flex: 1;
-  margin-top: 25px;
+  background: #fff;
 `;
 
 export const Top = styled.View`

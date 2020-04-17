@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Image } from 'react-native';
+import { Image, StatusBar } from 'react-native';
 
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -18,22 +18,25 @@ export default function SignIn() {
     dispatch(signInRequest(id));
   }
   return (
-    <Container>
-      <Image source={logo} />
-      <IdInput
-        placeholderTextColor="#999"
-        placeholder="Informe seu ID de cadastro"
-        keyboardType="numbers-and-punctuation"
-        autoCorrect={false}
-        autoCapitalize="none"
-        returnKeyType="send"
-        onSubmitEditing={handleSubmit}
-        value={id}
-        onChangeText={setId}
-      />
-      <SignInButton loading={loading} onPress={handleSubmit}>
-        Entrar no sistema
-      </SignInButton>
-    </Container>
+    <>
+      <StatusBar barStyle="light-content" backgroundColor="#7d40e7" />
+      <Container>
+        <Image source={logo} />
+        <IdInput
+          placeholderTextColor="#999"
+          placeholder="Informe seu ID de cadastro"
+          keyboardType="numbers-and-punctuation"
+          autoCorrect={false}
+          autoCapitalize="none"
+          returnKeyType="send"
+          onSubmitEditing={handleSubmit}
+          value={id}
+          onChangeText={setId}
+        />
+        <SignInButton loading={loading} onPress={handleSubmit}>
+          Entrar no sistema
+        </SignInButton>
+      </Container>
+    </>
   );
 }

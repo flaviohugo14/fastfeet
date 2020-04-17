@@ -41,7 +41,9 @@ export default function Delivery({ data, navigation }) {
           <Field>Cidade</Field>
           <Value>{data.recipient.city}</Value>
         </Group>
-        <LookDetailsButton onPress={() => navigation.navigate('Details')}>
+        <LookDetailsButton
+          onPress={() => navigation.navigate('Details', { data })}
+        >
           <Text>Ver detalhes</Text>
         </LookDetailsButton>
       </Footer>

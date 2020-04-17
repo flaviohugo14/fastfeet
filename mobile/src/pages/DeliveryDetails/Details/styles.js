@@ -3,6 +3,8 @@ import { Dimensions } from 'react-native';
 
 export const Container = styled.View`
   position: relative;
+  background: #fff;
+  flex: 1;
 `;
 
 export const HeaderBackground = styled.View`
