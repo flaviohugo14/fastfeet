@@ -39,7 +39,9 @@ export default function DeliveryActions({ delivery, status, navigation }) {
     }
   }
 
-  function handleShowProblems() {}
+  function handleShowProblems() {
+    navigation.navigate('ShowProblems', { id: delivery.id });
+  }
 
   function handleRegisterProblem() {}
 

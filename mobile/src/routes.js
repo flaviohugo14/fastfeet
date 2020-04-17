@@ -52,6 +52,16 @@ export default (signedIn = false) =>
                 },
                 ShowProblems: {
                   screen: ShowProblems,
+                  navigationOptions: {
+                    headerTitle: 'Visualizar problemas',
+                    headerBackTitleVisible: false,
+                    headerTransparent: true,
+                    headerTitleStyle: { fontWeight: 'bold' },
+                    headerTintColor: '#fff',
+                    headerLeftContainerStyle: {
+                      left: 10,
+                    },
+                  },
                 },
                 ConfirmDelivery: {
                   screen: ConfirmDelivery,

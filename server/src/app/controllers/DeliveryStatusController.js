@@ -37,6 +37,7 @@ class DeliveryStatusController {
           as: 'recipient',
         },
       ],
+      order: [['id', 'asc']],
     });
     return res.json(deliveries);
   }
@@ -76,10 +77,10 @@ class DeliveryStatusController {
   }
 
   async update(req, res) {
-    const schema = Yup.object(req.body).shape({
+    const schema = Yup.object().shape({
       start_date: Yup.date(),
-      // end_date: Yup.date(),
-      // signature_id: Yup.number(),
+      end_date: Yup.date(),
+      signature_id: Yup.number(),
     });
 
     if (!(await schema.isValid(req.body))) {
@@ -91,7 +92,7 @@ class DeliveryStatusController {
      */
 
     const startDate = parseISO(req.body.start_date);
-    // const endDate = parseISO(req.body.end_date);
+    const endDate = parseISO(req.body.end_date);
 
     // if (isBefore(startDate, new Date())) {
     //   return res.status(400).json({ error: 'Past dates are not permitted' });
@@ -141,6 +142,10 @@ class DeliveryStatusController {
     const deliveryBelongsToDeliveryman = await Delivery.findOne({
       where: { id: delivery_id, deliveryman_id },
     });
+
+    if (endDate && req.body.signature_id) {
+      await deliveryBelongsToDeliveryman.update(req.body);
+    }
 
     if (!deliveryBelongsToDeliveryman) {
       return res.status(401).json({

@@ -38,7 +38,11 @@ export default function Details({ navigation }) {
           product={delivery.product}
         />
         <DeliverySituation delivery={delivery} status={status} />
-        <DeliveryActions delivery={delivery} status={status} />
+        <DeliveryActions
+          delivery={delivery}
+          status={status}
+          navigation={navigation}
+        />
       </Container>
     </>
   );

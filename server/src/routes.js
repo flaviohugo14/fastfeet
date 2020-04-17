@@ -24,6 +24,8 @@ routes.put(
   DeliveryStatusController.update
 );
 routes.post('/files/signature', upload.single('file'), FileController.store);
+
+routes.get('/deliveries/:id/problems', DeliveryProblemController.index);
 routes.post('/deliveries/:id/problems', DeliveryProblemController.store);
 
 routes.get('/deliverymen/:id', DeliverymanController.show);
@@ -49,7 +51,6 @@ routes.get('/deliveries/:id', DeliveryController.show);
 routes.put('/deliveries/:id', DeliveryController.update);
 routes.delete('/deliveries/:id', DeliveryController.delete);
 
-routes.get('/deliveries/:id/problems', DeliveryProblemController.index);
 routes.get('/problems', DeliveryProblemController.show);
 routes.delete('/problem/:id/cancel-delivery', DeliveryProblemController.delete);
 
