@@ -60,4 +60,6 @@ export const PendingFilter = styled(Filter)``;
 
 export const Logout = styled.TouchableOpacity``;
 
-export const DeliveryList = styled.FlatList``;
+export const DeliveryList = styled.FlatList`
+  margin-top: 14px;
+`;

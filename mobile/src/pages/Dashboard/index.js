@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Text } from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
+
+import api from '~/services/api';
+
+import Delivery from '~/components/Delivery';
 
 import {
   Container,
@@ -21,7 +25,25 @@ import {
 } from './styles';
 
 export default function Dashboard() {
+  const [isActive, setIsActive] = useState(true);
+  const [deliveries, setDeliveries] = useState([]);
+
   const profile = useSelector(state => state.deliveryman.profile);
+
+  useEffect(() => {
+    async function loadDeliveries(id) {
+      let response = {};
+
+      if (isActive) {
+        response = await api.get(`deliveryman/${id}`);
+      } else {
+        response = await api.get(`deliveryman/${id}/deliveries`);
+      }
+
+      setDeliveries(response.data);
+    }
+    loadDeliveries(profile.id);
+  }, [profile.id, isActive]);
 
   return (
     <Container>
@@ -46,11 +68,25 @@ export default function Dashboard() {
       <Header>
         <Title>Entregas</Title>
         <ButtonGroup>
-          <PendingFilter>Pendentes</PendingFilter>
-          <DeliveredFilter>Entregues</DeliveredFilter>
+          <PendingFilter
+            isActive={isActive}
+            onPress={() => setIsActive(!isActive)}
+          >
+            Pendentes
+          </PendingFilter>
+          <DeliveredFilter
+            isActive={!isActive}
+            onPress={() => setIsActive(!isActive)}
+          >
+            Entregues
+          </DeliveredFilter>
         </ButtonGroup>
       </Header>
-      <DeliveryList />
+      <DeliveryList
+        data={deliveries}
+        keyExtractor={item => String(item.id)}
+        renderItem={({ item }) => <Delivery data={item} />}
+      />
     </Container>
   );
 }
