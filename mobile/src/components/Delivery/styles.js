@@ -51,4 +51,8 @@ export const Value = styled.Text`
 
 export const LookDetailsButton = styled.TouchableOpacity``;
 
-export const Text = styled.Text``;
+export const Text = styled.Text`
+  font-size: 14px;
+  font-weight: bold;
+  color: #7d40e7;
+`;

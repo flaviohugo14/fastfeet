@@ -62,4 +62,5 @@ export const Logout = styled.TouchableOpacity``;
 
 export const DeliveryList = styled.FlatList`
   margin-top: 14px;
+  padding: 3px 0;
 `;

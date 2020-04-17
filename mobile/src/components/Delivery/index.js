@@ -30,7 +30,7 @@ export default function Delivery({ data }) {
           <Icon size={25} name="local-shipping" color="#7d40e7" />
           <Title>{`Encomenda ${data.id}`}</Title>
         </Header>
-        <StatusLine />
+        <StatusLine start={data.start_date} end={data.end_date} />
       </Content>
       <Footer>
         <Group>
@@ -53,6 +53,8 @@ Delivery.propTypes = {
   data: PropTypes.shape({
     id: PropTypes.number,
     createdAt: PropTypes.string,
+    start_date: PropTypes.string,
+    end_date: PropTypes.string,
     recipient: PropTypes.shape({
       city: PropTypes.string,
     }),

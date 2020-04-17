@@ -54,6 +54,7 @@ class DeliveryStatusController {
 
     const deliveries = await Delivery.findAll({
       where: {
+        deliveryman_id: id,
         end_date: {
           [Op.ne]: null,
         },
