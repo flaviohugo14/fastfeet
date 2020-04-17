@@ -1,8 +1,11 @@
 import React from 'react';
-import { View } from 'react-native';
 
-// import { Container } from './styles';
+import { Container, HeaderBackground } from './styles';
 
 export default function Details() {
-  return <View />;
+  return (
+    <Container>
+      <HeaderBackground />
+    </Container>
+  );
 }

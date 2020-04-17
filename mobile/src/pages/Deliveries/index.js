@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { Text } from 'react-native';
+import { useSelector, useDispatch } from 'react-redux';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
+
+import PropTypes from 'prop-types';
 
 import api from '~/services/api';
 
 import Delivery from '~/components/Delivery';
+
+import { signOut } from '~/store/modules/auth/actions';
 
 import {
   Container,
@@ -24,10 +27,11 @@ import {
   Logout,
 } from './styles';
 
-export default function Dashboard() {
+export default function Deliveries({ navigation }) {
   const [isActive, setIsActive] = useState(true);
   const [deliveries, setDeliveries] = useState([]);
 
+  const dispatch = useDispatch();
   const profile = useSelector(state => state.deliveryman.profile);
 
   useEffect(() => {
@@ -61,7 +65,7 @@ export default function Dashboard() {
             <Title>{profile.name}</Title>
           </Div>
         </Profile>
-        <Logout>
+        <Logout onPress={() => dispatch(signOut())}>
           <Icon name="exit-to-app" size={24} color="#e74040" />
         </Logout>
       </Top>
@@ -85,17 +89,14 @@ export default function Dashboard() {
       <DeliveryList
         data={deliveries}
         keyExtractor={item => String(item.id)}
-        renderItem={({ item }) => <Delivery data={item} />}
+        renderItem={({ item }) => (
+          <Delivery data={item} navigation={navigation} />
+        )}
       />
     </Container>
   );
 }
 
-Dashboard.navigationOptions = {
-  tabBarLabel: ({ tintColor }) => (
-    <Text style={{ fontSize: 14, color: tintColor }}>Entrega</Text>
-  ),
-  tabBarIcon: ({ tintColor }) => (
-    <Icon name="reorder" size={24} color={tintColor} />
-  ),
+Deliveries.propTypes = {
+  navigation: PropTypes.shape({}).isRequired,
 };

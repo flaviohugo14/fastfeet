@@ -20,7 +20,7 @@ import {
   Text,
 } from './styles';
 
-export default function Delivery({ data }) {
+export default function Delivery({ data, navigation }) {
   const formattedDate = format(parseISO(data.createdAt), 'dd/MM/yyyy');
 
   return (
@@ -41,7 +41,7 @@ export default function Delivery({ data }) {
           <Field>Cidade</Field>
           <Value>{data.recipient.city}</Value>
         </Group>
-        <LookDetailsButton>
+        <LookDetailsButton onPress={() => navigation.navigate('Details')}>
           <Text>Ver detalhes</Text>
         </LookDetailsButton>
       </Footer>
@@ -58,5 +58,8 @@ Delivery.propTypes = {
     recipient: PropTypes.shape({
       city: PropTypes.string,
     }),
+  }).isRequired,
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func,
   }).isRequired,
 };
