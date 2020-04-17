@@ -22,7 +22,7 @@ export default function SignIn() {
       <Image source={logo} />
       <IdInput
         placeholderTextColor="#999"
-        placeholder="Informe seu ID de Cadastro"
+        placeholder="Informe seu ID de cadastro"
         keyboardType="numbers-and-punctuation"
         autoCorrect={false}
         autoCapitalize="none"
