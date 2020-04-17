@@ -78,8 +78,8 @@ class DeliveryStatusController {
   async update(req, res) {
     const schema = Yup.object(req.body).shape({
       start_date: Yup.date(),
-      end_date: Yup.date(),
-      signature_id: Yup.number(),
+      // end_date: Yup.date(),
+      // signature_id: Yup.number(),
     });
 
     if (!(await schema.isValid(req.body))) {
@@ -91,17 +91,11 @@ class DeliveryStatusController {
      */
 
     const startDate = parseISO(req.body.start_date);
-    const endDate = parseISO(req.body.end_date);
+    // const endDate = parseISO(req.body.end_date);
 
-    if (isBefore(startDate, new Date())) {
-      return res.status(400).json({ error: 'Past dates are not permitted' });
-    }
-
-    if (isBefore(endDate, startDate)) {
-      return res
-        .status(400)
-        .json({ error: 'Delivery date must be after the withdrawal date' });
-    }
+    // if (isBefore(startDate, new Date())) {
+    //   return res.status(400).json({ error: 'Past dates are not permitted' });
+    // }
 
     /**
      * Verify if orders pickup is between interval configured
@@ -176,7 +170,7 @@ class DeliveryStatusController {
           'canceled_at',
           'start_date',
           'end_date',
-          'signature_id',
+          // 'signature_id',
         ],
       });
 

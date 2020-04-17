@@ -16,23 +16,7 @@ import {
   Horizontal,
 } from './styles';
 
-export default function DeliverySituation({ delivery }) {
-  function returnStatus(Delivery) {
-    /**
-     * Deliveries canceled does not showed in Dashboard
-     */
-
-    if (Delivery.end_date) {
-      return 'Entregue';
-    }
-    if (Delivery.start_date) {
-      return 'Retirada';
-    }
-    return 'Pendente';
-  }
-
-  const status = returnStatus(delivery);
-
+export default function DeliverySituation({ delivery, status }) {
   return (
     <Container>
       <Header>
@@ -72,4 +56,5 @@ DeliverySituation.propTypes = {
     start_date: PropTypes.string,
     end_date: PropTypes.string,
   }).isRequired,
+  status: PropTypes.string.isRequired,
 };

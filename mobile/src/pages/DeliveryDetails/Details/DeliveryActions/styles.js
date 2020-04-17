@@ -32,6 +32,8 @@ export const InfoProblem = styled.TouchableOpacity`
   border-style: solid;
   border-right-color: #0000001a;
   border-right-width: 1px;
+
+  opacity: ${props => (props.disabled ? 0.4 : 1)};
 `;
 
 export const ShowProblems = styled.TouchableOpacity`
@@ -50,4 +52,26 @@ export const ConfirmDelivery = styled.TouchableOpacity`
   border-style: solid;
   border-left-color: #0000001a;
   border-left-width: 1px;
+
+  opacity: ${props => (props.disabled ? 0.4 : 1)};
+`;
+
+export const ConfirmWithdrawal = styled.TouchableOpacity`
+  margin: 13px 22px 0;
+  padding: 5px 10px;
+  background: #f8f9fd;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 0 3px #0000001a;
+  elevation: 3;
+
+  opacity: ${props => (props.disabled ? 0.4 : 1)};
+`;
+
+export const TextLarge = styled.Text`
+  color: #999;
+  font-size: 14px;
+  margin-left: 5px;
 `;
