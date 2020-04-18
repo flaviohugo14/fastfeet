@@ -49,6 +49,16 @@ export default (signedIn = false) =>
                 },
                 RegisterProblem: {
                   screen: RegisterProblem,
+                  navigationOptions: {
+                    headerTitle: 'Informar problema',
+                    headerBackTitleVisible: false,
+                    headerTransparent: true,
+                    headerTitleStyle: { fontWeight: 'bold' },
+                    headerTintColor: '#fff',
+                    headerLeftContainerStyle: {
+                      left: 10,
+                    },
+                  },
                 },
                 ShowProblems: {
                   screen: ShowProblems,

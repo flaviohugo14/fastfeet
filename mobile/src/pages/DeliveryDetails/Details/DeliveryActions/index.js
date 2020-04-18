@@ -43,14 +43,16 @@ export default function DeliveryActions({ delivery, status, navigation }) {
     navigation.navigate('ShowProblems', { id: delivery.id });
   }
 
-  function handleRegisterProblem() {}
+  function handleRegisterProblem() {
+    navigation.navigate('RegisterProblem', { id: delivery.id });
+  }
 
   function handleConfirmDelivery() {}
 
   return (
     <>
       <ConfirmWithdrawal
-        disabled={status === 'Retirada'}
+        disabled={status === 'Retirada' || 'Entregue'}
         onPress={handleConfirm}
       >
         <Icon name="autorenew" color="#82BF18" size={28} />
