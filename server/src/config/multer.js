@@ -6,6 +6,7 @@ export default {
   storage: multer.diskStorage({
     destination: resolve(__dirname, '..', '..', 'tmp', 'uploads'),
     filename: (req, file, cb) => {
+      console.log(file);
       crypto.randomBytes(16, (err, res) => {
         if (err) return cb(err);
 

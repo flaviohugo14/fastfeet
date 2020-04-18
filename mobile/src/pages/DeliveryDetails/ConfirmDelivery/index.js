@@ -27,18 +27,24 @@ export default function ConfirmDelivery({ navigation }) {
   const cameraRef = useRef(null);
 
   async function handleSubmit() {
-    const dataFile = new FormData();
+    const data = new FormData();
 
-    dataFile.append('file', {
-      type: 'image/jpg',
+    data.append('file', {
+      type: 'image/jpeg',
       uri,
-      name: 'signature.jpg',
+      name: uri.split('/').pop(),
     });
 
-    console.tron.log(dataFile);
+    // const file = {
+    //   fieldname: 'file',
+    //   originalname: 'signature.jpg',
+    //   encoding: '7bit',
+    //   mimetype: 'image/jpeg',
+    // };
 
     try {
-      const signatureReponse = await api.post('files', dataFile);
+      const signatureReponse = await api.post('files/signature', data);
+      console.tron.log(signatureReponse.data);
       await api.put(`deliveryman/${deliverymanId}/deliveries/${deliveryId}`, {
         signature_id: signatureReponse.data.id,
         end_date: new Date(),

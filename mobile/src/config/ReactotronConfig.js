@@ -6,7 +6,7 @@ import { Platform } from 'react-native';
 
 if (__DEV__) {
   const tron = Reactotron.setAsyncStorageHandler(AsyncStorage)
-    .configure({ host: Platform.OS === 'ios' ? 'localhost' : '10.0.2.2' })
+    .configure({ host: Platform.OS === 'ios' ? 'localhost' : '192.168.0.107' })
     .use(reactotronRedux())
     .use(sagaPlugin())
     .connect();
