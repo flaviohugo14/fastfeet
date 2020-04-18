@@ -91,26 +91,6 @@ class DeliveryStatusController {
      * Verify if order pickup is past
      */
 
-    const startDate = parseISO(req.body.start_date);
-    const endDate = parseISO(req.body.end_date);
-
-    // if (isBefore(startDate, new Date())) {
-    //   return res.status(400).json({ error: 'Past dates are not permitted' });
-    // }
-
-    /**
-     * Verify if orders pickup is between interval configured
-     */
-
-    const startInterval = setSeconds(setMinutes(setHours(startDate, 8), 0), 0);
-    const endInterval = setSeconds(setMinutes(setHours(startDate, 18), 0), 0);
-
-    if (isAfter(startDate, endInterval) || isBefore(startDate, startInterval)) {
-      return res
-        .status(400)
-        .json({ error: 'Orders pickup only between 08:00 and 18:00h' });
-    }
-
     const { deliveryman_id, delivery_id } = req.params;
 
     const deliverymanExists = await Deliveryman.findOne({
@@ -143,8 +123,26 @@ class DeliveryStatusController {
       where: { id: delivery_id, deliveryman_id },
     });
 
+    const endDate = parseISO(req.body.end_date);
+
     if (endDate && req.body.signature_id) {
-      await deliveryBelongsToDeliveryman.update(req.body);
+      try {
+        await deliveryBelongsToDeliveryman.update(req.body);
+        return res.status(200);
+      } catch (err) {
+        return res.status(500).json({ error: err });
+      }
+    }
+
+    const startDate = parseISO(req.body.start_date);
+
+    const startInterval = setSeconds(setMinutes(setHours(startDate, 8), 0), 0);
+    const endInterval = setSeconds(setMinutes(setHours(startDate, 18), 0), 0);
+
+    if (isAfter(startDate, endInterval) || isBefore(startDate, startInterval)) {
+      return res
+        .status(400)
+        .json({ error: 'Orders pickup only between 08:00 and 18:00h' });
     }
 
     if (!deliveryBelongsToDeliveryman) {

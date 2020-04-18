@@ -58,5 +58,7 @@
     <string>MaterialIcons.ttf</string>
     <string>MaterialCommunityIcons.ttf</string>
   </array>
+  <key>NSCameraUsageDescription</key>
+  <string>Me permite utilizar sua câmera?</string>
 </dict>
 </plist>

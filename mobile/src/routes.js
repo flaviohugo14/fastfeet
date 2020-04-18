@@ -75,6 +75,16 @@ export default (signedIn = false) =>
                 },
                 ConfirmDelivery: {
                   screen: ConfirmDelivery,
+                  navigationOptions: {
+                    headerTitle: 'Confirmar entrega',
+                    headerBackTitleVisible: false,
+                    headerTransparent: true,
+                    headerTitleStyle: { fontWeight: 'bold' },
+                    headerTintColor: '#fff',
+                    headerLeftContainerStyle: {
+                      left: 10,
+                    },
+                  },
                 },
               },
               {

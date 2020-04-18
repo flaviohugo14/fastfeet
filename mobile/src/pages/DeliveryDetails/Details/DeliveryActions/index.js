@@ -47,7 +47,9 @@ export default function DeliveryActions({ delivery, status, navigation }) {
     navigation.navigate('RegisterProblem', { id: delivery.id });
   }
 
-  function handleConfirmDelivery() {}
+  function handleConfirmDelivery() {
+    navigation.navigate('ConfirmDelivery', { id: delivery.id });
+  }
 
   return (
     <>
