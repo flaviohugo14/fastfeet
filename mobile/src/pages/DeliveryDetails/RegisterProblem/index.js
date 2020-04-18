@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Alert } from 'react-native';
 
+import PropTypes from 'prop-types';
+
 import api from '~/services/api';
 
 import {
@@ -68,3 +70,10 @@ export default function RegisterProblem({ navigation }) {
     </Container>
   );
 }
+
+RegisterProblem.propTypes = {
+  navigation: PropTypes.shape({
+    getParam: PropTypes.func,
+    goBack: PropTypes.func,
+  }).isRequired,
+};
