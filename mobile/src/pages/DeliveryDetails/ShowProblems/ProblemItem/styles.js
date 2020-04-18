@@ -8,6 +8,7 @@ export const Container = styled.View`
   padding: 20px;
 
   box-shadow: 0 0 3px #0000001a;
+  elevation: 3;
 
   flex-direction: row;
   justify-content: space-between;

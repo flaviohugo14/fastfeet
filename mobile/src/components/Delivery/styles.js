@@ -7,6 +7,8 @@ export const Container = styled.View`
   margin: 0 25px 30px;
   box-shadow: 0 0 4px #0000001a;
   justify-content: space-between;
+
+  elevation: 3;
 `;
 
 export const Content = styled.View`

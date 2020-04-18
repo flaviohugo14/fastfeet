@@ -4,7 +4,7 @@ import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { createStackNavigator } from 'react-navigation-stack';
 
-import { Text } from 'react-native';
+import { Text, View } from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -90,9 +90,21 @@ export default (signedIn = false) =>
               {
                 navigationOptions: {
                   tabBarLabel: ({ tintColor }) => (
-                    <Text style={{ fontSize: 14, color: tintColor }}>
-                      Entrega
-                    </Text>
+                    <View
+                      style={{
+                        marginBottom: 10,
+                      }}
+                    >
+                      <Text
+                        style={{
+                          fontSize: 14,
+                          color: tintColor,
+                          textAlign: 'center',
+                        }}
+                      >
+                        Entrega
+                      </Text>
+                    </View>
                   ),
                   tabBarIcon: ({ tintColor }) => (
                     <Icon name="reorder" size={24} color={tintColor} />
@@ -100,7 +112,27 @@ export default (signedIn = false) =>
                 },
               }
             ),
-            Profile,
+            Profile: {
+              screen: Profile,
+              navigationOptions: {
+                tabBarLabel: ({ tintColor }) => (
+                  <View style={{ marginBottom: 10 }}>
+                    <Text
+                      style={{
+                        fontSize: 14,
+                        color: tintColor,
+                        textAlign: 'center',
+                      }}
+                    >
+                      Meu Perfil
+                    </Text>
+                  </View>
+                ),
+                tabBarIcon: ({ tintColor }) => (
+                  <Icon name="account-circle" size={24} color={tintColor} />
+                ),
+              },
+            },
           },
           {
             resetOnBlur: true,

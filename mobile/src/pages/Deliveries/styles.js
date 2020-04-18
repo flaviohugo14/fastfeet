@@ -4,6 +4,7 @@ import Filter from '~/components/Filter';
 export const Container = styled.SafeAreaView`
   flex: 1;
   background: #fff;
+  padding-top: 25px;
 `;
 
 export const Top = styled.View`
@@ -40,7 +41,7 @@ export const Header = styled.View`
 export const Title = styled.Text`
   color: #444;
   font-weight: bold;
-  font-size: 29px;
+  font-size: 24px;
 `;
 
 export const Welcome = styled.Text`

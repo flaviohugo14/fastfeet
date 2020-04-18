@@ -35,9 +35,10 @@ export default function ConfirmDelivery({ navigation }) {
       name: 'signature.jpg',
     });
 
-    try {
-      const signatureReponse = await api.post('files/signature', dataFile);
+    console.tron.log(dataFile);
 
+    try {
+      const signatureReponse = await api.post('files', dataFile);
       await api.put(`deliveryman/${deliverymanId}/deliveries/${deliveryId}`, {
         signature_id: signatureReponse.data.id,
         end_date: new Date(),

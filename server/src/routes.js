@@ -23,7 +23,7 @@ routes.put(
   '/deliveryman/:deliveryman_id/deliveries/:delivery_id',
   DeliveryStatusController.update
 );
-routes.post('/files/signature', upload.single('file'), FileController.store);
+routes.post('/files', upload.single('file'), FileController.store);
 
 routes.get('/deliveries/:id/problems', DeliveryProblemController.index);
 routes.post('/deliveries/:id/problems', DeliveryProblemController.store);
@@ -38,7 +38,7 @@ routes.post('/recipients', RecipientController.store);
 routes.put('/recipients/:id', RecipientController.update);
 routes.delete('/recipients/:id', RecipientController.delete);
 
-routes.post('/files', upload.single('file'), FileController.store);
+// routes.post('/files', upload.single('file'), FileController.store);
 
 routes.post('/deliverymen', DeliverymanController.store);
 routes.get('/deliverymen', DeliverymanController.index);
