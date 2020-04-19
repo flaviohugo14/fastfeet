@@ -35,16 +35,8 @@ export default function ConfirmDelivery({ navigation }) {
       name: uri.split('/').pop(),
     });
 
-    // const file = {
-    //   fieldname: 'file',
-    //   originalname: 'signature.jpg',
-    //   encoding: '7bit',
-    //   mimetype: 'image/jpeg',
-    // };
-
     try {
       const signatureReponse = await api.post('files/signature', data);
-      console.tron.log(signatureReponse.data);
       await api.put(`deliveryman/${deliverymanId}/deliveries/${deliveryId}`, {
         signature_id: signatureReponse.data.id,
         end_date: new Date(),
@@ -57,7 +49,7 @@ export default function ConfirmDelivery({ navigation }) {
         },
       ]);
     } catch (err) {
-      Alert.alert('Falha ao confirmar', 'Por favor, tente novamente.', [
+      Alert.alert('Falha ao enviar foto', 'Por favor, tente novamente.', [
         {
           title: 'Ok',
           onPress: () => navigation.navigate('Details'),
@@ -66,7 +58,7 @@ export default function ConfirmDelivery({ navigation }) {
     }
   }
 
-  async function handletakePicture() {
+  async function handleTakePicture() {
     if (cameraRef) {
       const options = { quality: 0.5, base64: true };
       const data = await cameraRef.current.takePictureAsync(options);
@@ -84,8 +76,14 @@ export default function ConfirmDelivery({ navigation }) {
           </CameraWrapper>
         ) : (
           <CameraWrapper>
-            <Camera ref={cameraRef} type="back" captureAudio={false} />
-            <TakePictureButton onPress={handletakePicture}>
+            <Camera
+              ref={cameraRef}
+              captureAudio={false}
+              type={Camera.Constants.Type.back}
+              autoFocus={Camera.Constants.AutoFocus.on}
+              flashMode={Camera.Constants.FlashMode.off}
+            />
+            <TakePictureButton onPress={handleTakePicture}>
               <Icon name="photo-camera" color="#fff" size={30} />
             </TakePictureButton>
           </CameraWrapper>

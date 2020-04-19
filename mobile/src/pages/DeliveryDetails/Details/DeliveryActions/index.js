@@ -21,7 +21,7 @@ import {
 
 export default function DeliveryActions({ delivery, status, navigation }) {
   const profile = useSelector(state => state.deliveryman.profile);
-  console.tron.log(status);
+
   async function handleConfirm() {
     try {
       await api.put(`/deliveryman/${profile.id}/deliveries/${delivery.id}`, {
