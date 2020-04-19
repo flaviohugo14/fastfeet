@@ -52,7 +52,7 @@ export default function Deliveries({ navigation }) {
 
   return (
     <>
-      <StatusBar barStyle="dark-content" backgroundColor="#7c4890" />
+      <StatusBar barStyle="dark-content" backgroundColor="#fff" />
       <Container>
         <Top>
           <Profile>

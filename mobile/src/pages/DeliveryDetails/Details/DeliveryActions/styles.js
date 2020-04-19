@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 import { Dimensions } from 'react-native';
 
 export const Container = styled.View`
-  margin: 13px 22px 0;
+  margin: 13px 22px 10px;
   flex-direction: row;
   border-radius: 4px;
   background: #f8f9fd;
@@ -57,17 +57,24 @@ export const ConfirmDelivery = styled.TouchableOpacity`
 `;
 
 export const ConfirmWithdrawal = styled.TouchableOpacity`
+  align-items: center;
+  flex-direction: row
+  justify-content: center;
+
+  opacity: ${props => (props.disabled ? 0.4 : 1)};
+`;
+
+export const ContainerSmall = styled.View`
   margin: 13px 22px 0;
-  padding: 5px 10px;
-  background: #f8f9fd;
   flex-direction: row;
+  border-radius: 4px;
+  background: #f8f9fd;
+  height: 40px;
   align-items: center;
   justify-content: center;
 
   box-shadow: 0 0 3px #0000001a;
   elevation: 3;
-
-  opacity: ${props => (props.disabled ? 0.4 : 1)};
 `;
 
 export const TextLarge = styled.Text`

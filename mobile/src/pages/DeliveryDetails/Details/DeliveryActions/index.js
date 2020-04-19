@@ -10,6 +10,7 @@ import api from '~/services/api';
 
 import {
   Container,
+  ContainerSmall,
   Text,
   InfoProblem,
   ShowProblems,
@@ -53,13 +54,15 @@ export default function DeliveryActions({ delivery, status, navigation }) {
 
   return (
     <>
-      <ConfirmWithdrawal
-        disabled={status === 'Retirada' || 'Entregue'}
-        onPress={handleConfirm}
-      >
-        <Icon name="autorenew" color="#82BF18" size={28} />
-        <TextLarge>Confirmar Retirada</TextLarge>
-      </ConfirmWithdrawal>
+      <ContainerSmall>
+        <ConfirmWithdrawal
+          disabled={status === 'Retirada' || 'Entregue'}
+          onPress={handleConfirm}
+        >
+          <Icon name="autorenew" color="#82BF18" size={28} />
+          <TextLarge>Confirmar Retirada</TextLarge>
+        </ConfirmWithdrawal>
+      </ContainerSmall>
       <Container>
         <InfoProblem
           disabled={status === 'Entregue'}

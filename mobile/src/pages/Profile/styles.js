@@ -1,9 +1,12 @@
 import styled from 'styled-components/native';
-
 import Button from '~/components/Button';
 
 export const Container = styled.SafeAreaView`
   flex: 1;
+  background: #fff;
+`;
+
+export const Content = styled.View`
   margin: 80px 36px 0;
 `;
 
