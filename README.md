@@ -5,6 +5,11 @@
 <p align="center">
   <img alt="License" src="https://img.shields.io/badge/license-MIT-%2304D361">
 
+
+   <a href="https://www.linkedin.com/in/flaviopangracio/">
+    <img alt="Made by Flávio Pangrácio" src="https://img.shields.io/badge/made%20by-Flávio Pangrácio-%2304D361">
+  </a>
+
   <a href="https://github.com/flaviohugo14/fastfeet/stargazers">
     <img alt="Stargazers" src="https://img.shields.io/github/stars/flaviohugo14/fastfeet?style=social">
   </a>
@@ -36,9 +41,9 @@ Esse app faz parte de uma série de desafios propostos pela [Rocketseat](https:/
 <p align="center">
   <a href="server/">
     <img src=".github/nodejs.svg" alt="backend" />
-  </a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="server/">
+  </a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="web/">
   <img src=".github/reactjs.svg" alt="web"/>
-  </a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="server/">
+  </a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="mobile/">
   <img src=".github/reactnative.svg" alt="mobile"/>
 </a>
 
