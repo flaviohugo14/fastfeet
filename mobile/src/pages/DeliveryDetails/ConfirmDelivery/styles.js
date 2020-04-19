@@ -21,12 +21,13 @@ export const HeaderBackground = styled.View`
 
 export const Content = styled.View`
   margin: -60px 20px 0 20px;
+  padding-top: 125px;
   flex: 1;
 `;
 
 export const CameraWrapper = styled.View`
   width: 100%;
-  height: 90%;
+  height: 85%;
   border-radius: 4px;
   margin: 0 auto;
   position: relative;

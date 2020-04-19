@@ -33,7 +33,7 @@ export const Footer = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 0 29px;
+  padding: 0 20px;
 `;
 
 export const Group = styled.View``;
@@ -43,12 +43,15 @@ export const Field = styled.Text`
   color: #999;
 `;
 
-export const Value = styled.Text`
+export const Value = styled.Text.attrs({
+  numberOfLines: 1,
+  ellipsizeMode: 'tail',
+})`
   font-size: 16px;
   color: #444;
   font-weight: bold;
   overflow: hidden;
-  max-width: 100px;
+  max-width: 90px;
 `;
 
 export const LookDetailsButton = styled.TouchableOpacity``;

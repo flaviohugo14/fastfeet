@@ -38,10 +38,14 @@ export const Header = styled.View`
   justify-content: space-between;
 `;
 
-export const Title = styled.Text`
+export const Title = styled.Text.attrs({
+  numberOfLines: 1,
+  ellipsizeMode: 'tail',
+})`
   color: #444;
   font-weight: bold;
   font-size: 24px;
+  max-width: 175px;
 `;
 
 export const Welcome = styled.Text`

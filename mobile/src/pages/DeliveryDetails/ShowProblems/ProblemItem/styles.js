@@ -1,7 +1,6 @@
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
-  height: 74px;
   background: #fff;
   border-radius: 4px;
   margin: 20px 22px 0;
@@ -17,7 +16,7 @@ export const Container = styled.View`
 
 export const Description = styled.Text.attrs({
   ellipsizeMode: 'tail',
-  numberOfLines: 1,
+  numberOfLines: 3,
 })`
   overflow: hidden;
   max-width: 200px;
