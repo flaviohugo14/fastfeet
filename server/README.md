@@ -64,6 +64,11 @@ Backend do app FastFeet, desenvolvido com [Express](https://github.com/expressjs
 ## Como instalar?
 
 1. Instale o [Docker](https://www.docker.com/).
+
+<p align="center">
+ <img src=".github/docker.svg" alt="Docker">
+</p>
+
 2. Inicie as imagens dos bancos de dados:
 ```
 # Digite o nome sem aspas.
