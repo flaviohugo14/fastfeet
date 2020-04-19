@@ -20,24 +20,36 @@
 ---
 
 <p align="center">
-  <img src=".github/reactjs.svg" alt="ReactJS" />&nbsp;&nbsp;&nbsp;&nbsp;<img src=".github/hooks.svg" alt="React Hooks"/>&nbsp;&nbsp;&nbsp;&nbsp;<img src=".github/flux.svg" alt="Arquitetura Flux"/>
+  <img src=".github/reactnative.svg" alt="React Native" />&nbsp;&nbsp;&nbsp;&nbsp;<img src=".github/hooks.svg" alt="React Hooks"/>&nbsp;&nbsp;&nbsp;&nbsp;<img src=".github/flux.svg" alt="Arquitetura Flux"/>
 </a>
 
 ---
 
-<img alt="Login" src="./.github/login.png" />
-<img alt="Deliveries" src="./.github/deliveries.png" />
-<img alt="Deliveryman" src="./.github/deliveryman.png" />
+<p align="center">
+  <img alt="Login iPhone" src=".github/loginIOS.png" height="400px">
+  <img alt="Dashboard" src=".github/dashboard.png" height="400px"/>
+  <img alt="Profile" src=".github/profile.png" height="400px">
+</p>
 
-Página Web do app FastFeet, desenvolvido com [ReactJS](https://github.com/facebook/react).
+<br />
+
+<p align="center">
+  <img alt="Details" src=".github/details.png" height="400px">
+  <img alt="Info Problem" src=".github/infoproblem.png" height="400px"/>
+  <img alt="Receive Problem" src=".github/receiveproblem.png" height="400px">
+</p>
+
+<br />
+
+<p align="center">
+  <img alt="Camera" src=".github/camera.jpeg" height="300px">
+</p>
 
 ---
 ### Ferramentas utilizadas na aplicação:
 
 - [React Redux](https://github.com/reduxjs/redux)
 - [Redux Saga](https://github.com/redux-saga/redux-saga)
-- Yup
-- [React Toastify](https://github.com/fkhadra/react-toastify)
 - [Axios](https://github.com/axios/axios)
 - [Unform](https://github.com/rocketseat/unform)
 - [Date-fns](https://date-fns.org/)
@@ -57,31 +69,39 @@ Página Web do app FastFeet, desenvolvido com [ReactJS](https://github.com/faceb
 
 Antes de tudo, instale o [Yarn](https://classic.yarnpkg.com/pt-BR/docs/install/).
 
-1. Clone o repositório e entre na pasta ```web```:
+1. Clone o repositório e entre na pasta ```mobile```:
 ```
 $ git clone https://github.com/flaviohugo14/fastfeet.git
 ```
 ```
-$ cd fastfeet/web
+$ cd fastfeet/mobile
 ```
-2. Instale as dependências e inicie no modo de desenvolvimento:
+
+2. Instale todas as dependências:
 ```
 $ yarn install
-$ yarn start
+
+# Se está tentando rodar no iOS, também faça:
+$ cd ios && pod install && cd ..
 ```
-
-4. Configure o arquivo `./src/services/api.js` com o endereço de sua API.
-
-5. Acesse:
+3. Abra seu emulador Android ou iOS e instale o app:
 ```
-http://localhost:3000
+# Android
+$ react-native run-android
 
-# Login: admin@fastfeet.com
-# Senha: 123456
+# iOS
+$ react-native run-ios
 ```
+4. Se o _Metro Bundler_ não se iniciar, rode `$ yarn start`
 
-#### OBS: Esta página Web tem **resposividade**, no entanto, utilize telas com largura maior que **700px** para melhor experiência.
+5. Configure o arquivo `./src/services/api.js` com o endereço de sua API.
 
+ #### OBS: Este aplicativo foi feito utilizando o emulador do iPhone 11 Pro Max e seu design está melhor adaptado com telas de mesma proporção (**19,5:9**) e tamanho.
+
+ #### OBS: A funcionalidade de câmera não pode ser testada.
+
+
+---
 By [Flávio Pangrácio](https://www.linkedin.com/in/flaviopangracio/)
 
 ---

@@ -63,6 +63,8 @@ Backend do app FastFeet, desenvolvido com [Express](https://github.com/expressjs
 
 ## Como instalar?
 
+Antes de tudo, instale o [Yarn](https://classic.yarnpkg.com/pt-BR/docs/install/) e o [Node.js](https://nodejs.org/en/download/).
+
 1. Instale o [Docker](https://www.docker.com/).
 
 <p align="center">
