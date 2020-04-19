@@ -21,7 +21,7 @@ import {
 
 export default function DeliveryActions({ delivery, status, navigation }) {
   const profile = useSelector(state => state.deliveryman.profile);
-
+  console.tron.log(status);
   async function handleConfirm() {
     try {
       await api.put(`/deliveryman/${profile.id}/deliveries/${delivery.id}`, {
@@ -56,7 +56,7 @@ export default function DeliveryActions({ delivery, status, navigation }) {
     <>
       <ContainerSmall>
         <ConfirmWithdrawal
-          disabled={status === 'Retirada' || 'Entregue'}
+          disabled={status !== 'Pendente'}
           onPress={handleConfirm}
         >
           <Icon name="autorenew" color="#82BF18" size={28} />

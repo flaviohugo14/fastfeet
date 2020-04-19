@@ -20,7 +20,7 @@ export default function Details({ navigation }) {
     if (Delivery.end_date) {
       return 'Entregue';
     }
-    if (Delivery.start_date) {
+    if (Delivery.start_date && !Delivery.end_date) {
       return 'Retirada';
     }
     return 'Pendente';
