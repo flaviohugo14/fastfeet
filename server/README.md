@@ -112,6 +112,10 @@ $ yarn dev
 ```
 $ yarn queue
 ```
+
+10. Para o testar o envio de email use o [MailTrap](https://mailtrap.io/)
+
+11. Para tratamento de exceções, use o [Sentry](https://sentry.io/)
 ---
 
 ## Documentação das rotas
