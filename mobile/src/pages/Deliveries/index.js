@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { StatusBar } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 
+import { withNavigationFocus } from 'react-navigation';
+
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import PropTypes from 'prop-types';
@@ -28,7 +30,7 @@ import {
   Logout,
 } from './styles';
 
-export default function Deliveries({ navigation }) {
+function Deliveries({ navigation, isFocused }) {
   const [isActive, setIsActive] = useState(true);
   const [deliveries, setDeliveries] = useState([]);
 
@@ -47,8 +49,10 @@ export default function Deliveries({ navigation }) {
 
       setDeliveries(response.data);
     }
-    loadDeliveries(profile.id);
-  }, [profile.id, isActive]);
+    if (isFocused) {
+      loadDeliveries(profile.id);
+    }
+  }, [profile.id, isActive, isFocused]);
 
   return (
     <>
@@ -104,3 +108,5 @@ export default function Deliveries({ navigation }) {
 Deliveries.propTypes = {
   navigation: PropTypes.shape({}).isRequired,
 };
+
+export default withNavigationFocus(Deliveries);
