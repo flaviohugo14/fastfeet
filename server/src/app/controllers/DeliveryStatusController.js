@@ -126,12 +126,8 @@ class DeliveryStatusController {
     const endDate = parseISO(req.body.end_date);
 
     if (endDate && req.body.signature_id) {
-      try {
-        await deliveryBelongsToDeliveryman.update(req.body);
-        return res.status(200);
-      } catch (err) {
-        return res.status(500).json({ error: err });
-      }
+      await deliveryBelongsToDeliveryman.update(req.body);
+      return res.status(200);
     }
 
     const startDate = parseISO(req.body.start_date);
