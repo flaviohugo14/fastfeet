@@ -19,6 +19,12 @@
 
 ---
 
+<p align="center">
+  <img src=".github/reactjs.svg" alt="ReactJS" />&nbsp;&nbsp;&nbsp;&nbsp;<img src=".github/hooks.svg" alt="React Hooks"/>&nbsp;&nbsp;&nbsp;&nbsp;<img src=".github/flux.svg" alt="Arquitetura Flux"/>
+</a>
+
+---
+
 <img alt="Login" src="./.github/login.png" />
 <img alt="Deliveries" src="./.github/deliveries.png" />
 <img alt="Deliveryman" src="./.github/deliveryman.png" />
