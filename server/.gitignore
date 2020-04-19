@@ -3,3 +3,4 @@ yarn.lock
 *.env
 .vscode/
 .DS_Store
+dist/
