@@ -12,26 +12,28 @@
 
 ---
 
-<div style="display: flex; flex-direction: row; justify-content: space-between">
-<img alt="Encomendas" src=".github/deliveries.png" style="max-height: 380px" width="auto" height="auto"/>
-<img alt="Login iPhone" src=".github/loginIOS.png" height="400px">
-</div>
+<p align="center">
+  <img alt="Encomendas" src=".github/deliveries.png" style="max-height: 300px" width="auto" height="auto"/>
+  <img alt="Login iPhone" src=".github/loginIOS.png" style="max-height: 300px"width="auto" height="auto">
+</p>
 
 ---
 FastFeet é um app para uma transportadora fictícia, o FastFeet.
 
 Esse app faz parte de uma série de desafios propostos pela [Rocketseat](https://rocketseat.com.br) a fim de certificar seus alunos.
 
+## Principais tecnologias
+
 ## 🚀 Iniciando a aplicação na sua máquina:
 - Clique nos ícones abaixo para configurar Servidor, Web e Mobile separadamente.
 
 <p align="center">
-<a href="server/">
-  <img src=".github/nodejs.svg" alt="backend" />
-</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="server/">
-<img src=".github/reactjs.svg" alt="web"/>
-</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="server/">
-<img src=".github/reactnative.svg" alt="mobile"/>
+  <a href="server/">
+    <img src=".github/nodejs.svg" alt="backend" />
+  </a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="server/">
+  <img src=".github/reactjs.svg" alt="web"/>
+  </a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="server/">
+  <img src=".github/reactnative.svg" alt="mobile"/>
 </a>
 
 </p>
