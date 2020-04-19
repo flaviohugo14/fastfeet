@@ -31,9 +31,13 @@ Esse app faz parte de uma série de desafios propostos pela [Rocketseat](https:/
   <img src=".github/nodejs.svg" alt="backend" />
 </a>
 
-<a href="server/" style="margin-left: 50px; margin-right: 50px">
+&nbsp;&nbsp;&nbsp;
+
+<a href="server/">
 <img src=".github/reactjs.svg" alt="web"/>
 </a>
+
+&nbsp;&nbsp;&nbsp;
 
 <a href="server/">
 <img src=".github/reactnative.svg" alt="mobile"/>
