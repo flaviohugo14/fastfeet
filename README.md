@@ -13,7 +13,7 @@
 ---
 
 <p align="center">
-  <img alt="Encomendas" src=".github/deliveries.png" style="max-height: 200px" width="auto" height="auto"/><img alt="Login iPhone" src=".github/loginIOS.png" style="max-height: 200px"width="auto" height="auto">
+  <img alt="Encomendas" src=".github/deliveries.png" width="400px"/><img alt="Login iPhone" src=".github/loginIOS.png" height="400px">
 </p>
 
 ---
