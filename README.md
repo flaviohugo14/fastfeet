@@ -10,19 +10,62 @@
   </a>
 </p>
 
+---
+
+<div style="display: flex; flex-direction: row; justify-content: space-between">
+<img alt="Encomendas" src=".github/deliveries.png" style="max-height: 380px" width="auto" height="auto"/>
+<img alt="Login iPhone" src=".github/loginIOS.png" height="400px">
+</div>
+
+---
 FastFeet é um app para uma transportadora fictícia, o FastFeet.
 
-Esse app está em fase de desenvolvimento e faz parte de uma série de desafios propostos pela [Rocketseat](https://rocketseat.com.br) em seu bootcamp.
+Esse app faz parte de uma série de desafios propostos pela [Rocketseat](https://rocketseat.com.br) a fim de certificar seus alunos.
 
-## :rocket: Tecnologias:
-- Servidor: [Node.js](https://github.com/nodejs)
-- Web: [ReactJS](https://pt-br.reactjs.org/)
-- Mobile: [React Native](https://facebook.github.io/react-native/)
+## 🚀 Iniciando a aplicação na sua máquina:
+- Clique nos ícones abaixo para configurar Servidor, Web e Mobile separadamente.
 
-## Acompanhe as fases do desenvolvimento:
-- [Parte 1](server/) (Finalizado)
-- [Parte 2](server/) (Finalizado)
-- [Parte 3](web/) (Finalizado)
-- [Parte 4]() (Não iniciado)
+<div style="display: flex; flex-direction: row; justify-content: center">
+
+<a href="server/">
+  <img src=".github/nodejs.svg" alt="backend" />
+</a>
+
+<a href="server/" style="margin-left: 30px; margin-right: 30px">
+<img src=".github/reactjs.svg" alt="web"/>
+</a>
+
+<a href="server/">
+<img src=".github/reactnative.svg" alt="mobile"/>
+</a>
+
+</div>
+
+## 💡Como contribuir:
+- Realize um fork do repositório
+
+```
+# Instale o GitHub CLI ou a págian do GitHub
+$ gh repo fork flaviohugo14/fastfeet
+
+# Clone o seu fork
+$ git clone link-do-seu-fork
+
+# Entre na pasta clonada
+$ cd fastfeet
+
+# Crie uma branch para sua feature
+$ git checkout -b sua-feature
+
+# Commite suas alterações
+$ git commit -m "feature: Minha feature"
+
+# Faça o push para a sua branch
+$ git push origin sua-feature
+
+```
+
+- Assim que o merge da sua pull request for feito, você pode deletar sua branch.
+
 ---
 By [Flávio Pangrácio](https://www.linkedin.com/in/flaviopangracio/)
