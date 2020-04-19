@@ -65,7 +65,7 @@ export default function DeliveryActions({ delivery, status, navigation }) {
       </ContainerSmall>
       <Container>
         <InfoProblem
-          disabled={status === 'Entregue'}
+          disabled={status !== 'Retirada'}
           onPress={handleRegisterProblem}
         >
           <Icon color="#e74040" name="highlight-off" size={28} />

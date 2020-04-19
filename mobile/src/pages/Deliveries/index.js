@@ -107,6 +107,7 @@ function Deliveries({ navigation, isFocused }) {
 
 Deliveries.propTypes = {
   navigation: PropTypes.shape({}).isRequired,
+  isFocused: PropTypes.bool.isRequired,
 };
 
 export default withNavigationFocus(Deliveries);

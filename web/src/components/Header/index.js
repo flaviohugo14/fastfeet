@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { MdMenu } from 'react-icons/md';
 import history from '~/services/history';
 
@@ -21,6 +21,7 @@ export default function Header() {
   const [show, setShow] = useState(false);
 
   const dispatch = useDispatch();
+  const profile = useSelector(state => state.user.profile);
 
   function handleToggle() {
     setShow(!show);
@@ -65,7 +66,7 @@ export default function Header() {
 
           <aside>
             <div>
-              <strong>Admin FastFeet</strong>
+              <strong>{profile.name}</strong>
               <Logoff onClick={() => dispatch(signOut())}>
                 sair do sistema
               </Logoff>
