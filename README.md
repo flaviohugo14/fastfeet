@@ -25,25 +25,16 @@ Esse app faz parte de uma série de desafios propostos pela [Rocketseat](https:/
 ## 🚀 Iniciando a aplicação na sua máquina:
 - Clique nos ícones abaixo para configurar Servidor, Web e Mobile separadamente.
 
-<div style="display: flex; flex-direction: row; justify-content: center">
-
+<p align="center">
 <a href="server/">
   <img src=".github/nodejs.svg" alt="backend" />
-</a>
-
-&nbsp;&nbsp;&nbsp;
-
-<a href="server/">
+</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="server/">
 <img src=".github/reactjs.svg" alt="web"/>
-</a>
-
-&nbsp;&nbsp;&nbsp;
-
-<a href="server/">
+</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="server/">
 <img src=".github/reactnative.svg" alt="mobile"/>
 </a>
 
-</div>
+</p>
 
 ## 💡Como contribuir:
 - Realize um fork do repositório
