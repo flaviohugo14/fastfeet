@@ -19,7 +19,15 @@
 </p>
 
 Backend do app FastFeet, desenvolvido com [Express](https://github.com/expressjs/express), nos padrões REST API.
+
 ---
+
+<p align="center">
+  <img src=".github/nodejs.svg" alt="Node.js" />&nbsp;&nbsp;&nbsp;&nbsp;<img src=".github/terminal.svg" alt="Terminal"/>
+</a>
+
+---
+
 ### Ferramentas utilizadas na aplicação:
 
 - [Sequelize](https://github.com/sequelize/sequelize) - ORM para conversação com o banco de dados
@@ -35,9 +43,10 @@ Backend do app FastFeet, desenvolvido com [Express](https://github.com/expressjs
 - [Youch](https://github.com/poppinss/youch) - Tratamento de exceções no desenvolvimento.
 
 ### Bancos de dados da aplicacão
-- [Postegres](https://github.com/postgres/postgres)
-- [MongoDB](https://www.mongodb.com/)
-- [Redis](https://redis.io/)
+
+<p align="center">
+  <a href="https://github.com/postgres/postgres"><img src=".github/postgres.svg" alt="Postgres" /></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.mongodb.com/"><img src=".github/mongo.svg" alt="MongoDB" /></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://redis.io/"><img src=".github/redis.svg" alt="Redis" /></a>
+</p>
 
 ### Ferramentas utilizadas no ambiente de desenvolvimento:
 - [Sucrase](https://sucrase.io/) - Para utilizar o ES6 (ECMAScript 6)
@@ -57,6 +66,9 @@ Backend do app FastFeet, desenvolvido com [Express](https://github.com/expressjs
 1. Instale o [Docker](https://www.docker.com/).
 2. Inicie as imagens dos bancos de dados:
 ```
+# Digite o nome sem aspas.
+```
+```
 $ docker run --name "nome" -p 6379:6379 -d -t redis:alpine
 ```
 ```
@@ -64,6 +76,13 @@ $ docker run --name "nome" -p 27017:27017 -d -t mongo
 ```
 ```
 $ docker run --name "nome" -p 5432:5432 -d -t postgres
+```
+```
+# Para ver se os está funcionando
+$ docker ps
+
+# Para iniciar algum processo do Docker
+$ docker start "nome"
 ```
 3. Clone o repositório e entre na pasta ```server```:
 ```
@@ -77,11 +96,19 @@ $ cd fastfeet/server
 $ yarn install
 ```
 5. Configure as váriaveis ambiente criando um arquivo ```.env```, seguindo o modelo do arquivo ```.env.example```
-6. Inicie o processo principal da aplicação:
+6. Rode as `migrations` com o comando:
+```
+$ yarn sequelize db:migrate
+```
+7. Rode as `seeds` com o comando:
+```
+$ yarn sequelize db:seed:all
+```
+8. Inicie o processo principal da aplicação:
 ```
 $ yarn dev
 ```
-7. Inicie o processo que gerencia as filas em _background_:
+9. Inicie o processo que gerencia as filas em _background_:
 ```
 $ yarn queue
 ```

@@ -67,6 +67,13 @@ $ cd fastfeet/web
 ```
 $ yarn start
 ```
+3. Acesse:
+```
+http://localhost:3000
+
+# Login: admin@fastfeet.com
+# Senha: 123456
+```
 
 By [Flávio Pangrácio](https://www.linkedin.com/in/flaviopangracio/)
 
